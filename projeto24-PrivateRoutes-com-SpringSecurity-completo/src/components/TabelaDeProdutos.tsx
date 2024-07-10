@@ -34,12 +34,9 @@ const TabelaDeProdutos = () => {
       <thead>
         <tr>
           <th className="align-middle text-center">Id</th>
-          <th className="align-middle text-center">Imagem</th>
           <th className="align-middle text-center">Categoria</th>
           <th className="align-middle text-center">Nome</th>
           <th className="align-middle text-center">Data de Cadastro</th>
-          <th className="align-middle text-center">Quantidade</th>
-          <th className="align-middle text-center">Preço</th>
           <th className="align-middle text-center">Ação</th>
         </tr>
       </thead>
@@ -48,9 +45,6 @@ const TabelaDeProdutos = () => {
           <tr key={produto.id}>
             <td width="8%" className="align-middle text-center">
               {produto.id}
-            </td>
-            <td width="12%" className="align-middle text-center">
-              <img src={produto.imagem} width={45} />
             </td>
             <td width="12%" className="align-middle text-center">
               {produto.categoria.nome}
@@ -69,18 +63,6 @@ const TabelaDeProdutos = () => {
               {dayjs(produto.dataCadastro).format("DD/MM/YYYY")}
             </td>
             <td width="12%" className="align-middle text-center">
-              {produto.status.toLocaleString("pt-BR", {
-                useGrouping: true,
-              })}
-            </td>
-            <td width="12%" className="align-middle text-end pe-3">
-              {produto.valorEstimado.toLocaleString("pt-BR", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-                useGrouping: true,
-              })}
-            </td>
-            <td width="12%" className="align-middle text-center">
               <button
                 onClick={() => tratarRemocao(produto.id!)}
                 className="btn btn-danger btn-sm"
@@ -91,27 +73,6 @@ const TabelaDeProdutos = () => {
           </tr>
         ))}
       </tbody>
-      <tfoot>
-        <tr>
-          <td colSpan={4}></td>
-          <td className="align-middle text-center fw-bold">Total...</td>
-          <td className="align-middle text-center fw-bold" colSpan={2}>
-            R${" "}
-            {produtos
-              .reduce(
-                (total, produto) =>
-                  total + produto.status * produto.valorEstimado,
-                0
-              )
-              .toLocaleString("pt-BR", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-                useGrouping: true,
-              })}
-          </td>
-          <td></td>
-        </tr>
-      </tfoot>
     </table>
   );
 };
