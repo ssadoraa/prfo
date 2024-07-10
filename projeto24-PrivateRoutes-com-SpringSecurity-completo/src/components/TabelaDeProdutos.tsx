@@ -69,19 +69,22 @@ const TabelaDeProdutos = () => {
               {dayjs(produto.dataCadastro).format("DD/MM/YYYY")}
             </td>
             <td width="12%" className="align-middle text-center">
-              {produto.qtdEstoque.toLocaleString("pt-BR", {
+              {produto.status.toLocaleString("pt-BR", {
                 useGrouping: true,
               })}
             </td>
             <td width="12%" className="align-middle text-end pe-3">
-              {produto.preco.toLocaleString("pt-BR", {
+              {produto.valorEstimado.toLocaleString("pt-BR", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
                 useGrouping: true,
               })}
             </td>
             <td width="12%" className="align-middle text-center">
-              <button onClick={() => tratarRemocao(produto.id!)} className="btn btn-danger btn-sm">
+              <button
+                onClick={() => tratarRemocao(produto.id!)}
+                className="btn btn-danger btn-sm"
+              >
                 <img src={deleteIcon} /> Remover
               </button>
             </td>
@@ -95,7 +98,11 @@ const TabelaDeProdutos = () => {
           <td className="align-middle text-center fw-bold" colSpan={2}>
             R${" "}
             {produtos
-              .reduce((total, produto) => total + produto.qtdEstoque * produto.preco, 0)
+              .reduce(
+                (total, produto) =>
+                  total + produto.status * produto.valorEstimado,
+                0
+              )
               .toLocaleString("pt-BR", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,

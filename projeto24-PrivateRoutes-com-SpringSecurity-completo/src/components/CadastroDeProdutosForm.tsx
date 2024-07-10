@@ -20,10 +20,10 @@ import { useNavigate } from "react-router-dom";
 //   descricao: string;
 //   categoria: number;
 //   data_cadastro: string;
-//   preco: number;
+//   valorEstimado: number;
 //   qtd_estoque: number;
 //   imagem: string;
-//   disponivel: boolean;
+//   condicao: boolean;
 // }
 
 const categoriaValida = (categoria: string) => {
@@ -38,27 +38,30 @@ const schema = z.object({
     .min(1, { message: "O nome deve ser informado." })
     .min(3, { message: "O nome deve ter pelo menos 3 caracteres." }),
   descricao: z.string().min(1, { message: "A descição deve ser informada." }),
-  categoria: z.string().refine(categoriaValida, { message: "A categoria deve ser informada." }),
+  categoria: z
+    .string()
+    .refine(categoriaValida, { message: "A categoria deve ser informada." }),
   data_cadastro: z
     .string()
     .min(1, { message: "A data de cadastro deve ser informada." })
     .regex(regexData, { message: "Data inválida." })
     .refine(dataValida, { message: "Data inválida." }),
-  preco: z
+  valorEstimado: z
     .number({ invalid_type_error: "O preço deve ser informado." })
     .min(0.1, { message: "O preço deve ser maior ou igual a R$ 0.10" }),
   qtd_estoque: z
-    .number({ invalid_type_error: "A quantidade em estoque deve ser informada." })
+    .number({
+      invalid_type_error: "A quantidade em estoque deve ser informada.",
+    })
     .min(0, { message: "A quantidade em estoque deve ser maior do que zero." }),
   imagem: z
     .string()
     .min(1, { message: "A imagem deve ser informada." })
     .regex(regexImagem, { message: "Nome de imagem inválido." }),
-  disponivel: z.boolean(),
+  condicao: z.boolean(),
 });
 
 const CadastroDeProdutosForm = () => {
-
   const navigate = useNavigate();
 
   const produtoSelecionado = useProdutoStore((s) => s.produtoSelecionado);
@@ -88,33 +91,38 @@ const CadastroDeProdutosForm = () => {
       setValue("nome", produtoSelecionado.nome);
       setValue("descricao", produtoSelecionado.descricao);
       setValue("categoria", String(produtoSelecionado.categoria.id));
-      setValue("data_cadastro", dayjs(produtoSelecionado.dataCadastro).format("DD/MM/YYYY"));
-      setValue("preco", produtoSelecionado.preco);
-      setValue("qtd_estoque", produtoSelecionado.qtdEstoque);
+      setValue(
+        "data_cadastro",
+        dayjs(produtoSelecionado.dataCadastro).format("DD/MM/YYYY")
+      );
+      setValue("valorEstimado", produtoSelecionado.valorEstimado);
+      setValue("qtd_estoque", produtoSelecionado.status);
       setValue("imagem", produtoSelecionado.imagem);
-      setValue("disponivel", produtoSelecionado.disponivel);
+      setValue("condicao", produtoSelecionado.condicao);
     }
   }, [produtoSelecionado]);
 
-  const { mutate: cadastrarProduto, error: errorCadastrarProduto } = useCadastrarProduto();
-  const { mutate: alterarProduto, error: errorAlterarProduto } = useAlterarProduto();
+  const { mutate: cadastrarProduto, error: errorCadastrarProduto } =
+    useCadastrarProduto();
+  const { mutate: alterarProduto, error: errorAlterarProduto } =
+    useAlterarProduto();
 
   const onSubmit = ({
     nome,
     descricao,
     categoria,
     data_cadastro,
-    preco,
+    valorEstimado,
     qtd_estoque,
     imagem,
-    disponivel,
+    condicao,
   }: FormProduto) => {
     const produto: Produto = {
       nome: nome,
       descricao: descricao,
       imagem: imagem,
       categoria: { id: parseInt(categoria) } as Categoria,
-      disponivel: disponivel,
+      condicao: condicao,
       dataCadastro: new Date( // DD/MM/AAAA   AAAA-MM-DD
         data_cadastro.substring(6, 10) +
           "-" +
@@ -122,8 +130,8 @@ const CadastroDeProdutosForm = () => {
           "-" +
           data_cadastro.substring(0, 2)
       ),
-      qtdEstoque: qtd_estoque,
-      preco: preco,
+      status: qtd_estoque,
+      valorEstimado: valorEstimado,
     };
     if (produtoSelecionado.id) {
       produto.id = produtoSelecionado.id;
@@ -132,7 +140,7 @@ const CadastroDeProdutosForm = () => {
       cadastrarProduto(produto, {
         onError: (error) => {
           if (error instanceof CustomError && error.errorCode === 401) {
-            navigate("/login", {state: {from: "/listar-produtos"}});
+            navigate("/login", { state: { from: "/listar-produtos" } });
           }
         },
       });
@@ -183,7 +191,9 @@ const CadastroDeProdutosForm = () => {
                     : "form-control form-control-sm"
                 }
               />
-              <div className="invalid-feedback">{errors.descricao?.message}</div>
+              <div className="invalid-feedback">
+                {errors.descricao?.message}
+              </div>
             </div>
           </div>
         </div>
@@ -210,7 +220,9 @@ const CadastroDeProdutosForm = () => {
                 <option value="2">Legume</option>
                 <option value="3">Verdura</option>
               </select>
-              <div className="invalid-feedback">{errors.categoria?.message}</div>
+              <div className="invalid-feedback">
+                {errors.categoria?.message}
+              </div>
             </div>
           </div>
         </div>
@@ -230,7 +242,9 @@ const CadastroDeProdutosForm = () => {
                     : "form-control form-control-sm"
                 }
               />
-              <div className="invalid-feedback">{errors.data_cadastro?.message}</div>
+              <div className="invalid-feedback">
+                {errors.data_cadastro?.message}
+              </div>
             </div>
           </div>
         </div>
@@ -239,23 +253,25 @@ const CadastroDeProdutosForm = () => {
       <div className="row mb-1">
         <div className="col-xl-6">
           <div className="row mb-2">
-            <label htmlFor="preco" className="col-xl-2 fw-bold">
+            <label htmlFor="valorEstimado" className="col-xl-2 fw-bold">
               Preço
             </label>
             <div className="col-xl-10">
               <input
-                {...register("preco", { valueAsNumber: true })}
+                {...register("valorEstimado", { valueAsNumber: true })}
                 type="number"
                 step="0.01"
                 min="0"
-                id="preco"
+                id="valorEstimado"
                 className={
-                  errors.preco
+                  errors.valorEstimado
                     ? "form-control form-control-sm is-invalid"
                     : "form-control form-control-sm"
                 }
               />
-              <div className="invalid-feedback">{errors.preco?.message}</div>
+              <div className="invalid-feedback">
+                {errors.valorEstimado?.message}
+              </div>
             </div>
           </div>
         </div>
@@ -276,7 +292,9 @@ const CadastroDeProdutosForm = () => {
                     : "form-control form-control-sm"
                 }
               />
-              <div className="invalid-feedback">{errors.qtd_estoque?.message}</div>
+              <div className="invalid-feedback">
+                {errors.qtd_estoque?.message}
+              </div>
             </div>
           </div>
         </div>
@@ -308,12 +326,12 @@ const CadastroDeProdutosForm = () => {
             <div className="offset-xl-3 col-xl-9">
               <div className="form-check pl-0 mt-xl-0 mt-2">
                 <input
-                  {...register("disponivel")}
+                  {...register("condicao")}
                   type="checkbox"
-                  id="disponivel"
+                  id="condicao"
                   className="form-check-input"
                 />
-                <label htmlFor="disponivel" className="form-check-label">
+                <label htmlFor="condicao" className="form-check-label">
                   Disponível?
                 </label>
               </div>

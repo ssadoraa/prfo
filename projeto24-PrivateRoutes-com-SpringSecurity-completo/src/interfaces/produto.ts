@@ -6,9 +6,9 @@ interface Produto {
   categoria: Categoria;
   nome: string;
   descricao: string;
-  disponivel: boolean;
+  condicao: string;
   dataCadastro: Date;
-  qtdEstoque: number;
-  preco: number;
+  status: string;
+  valorEstimado: number;
 }
 export default Produto;

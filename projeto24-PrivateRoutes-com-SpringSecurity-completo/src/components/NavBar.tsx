@@ -26,7 +26,11 @@ function NavBar() {
         <div className="row">
           <div className="col-3 d-flex align-items-center">
             <Link to="/" style={{ textDecoration: "none", fontSize: "16px" }}>
-              <img className="d-none d-md-block" src={hortifruti} style={{ width: "70px" }} />
+              <img
+                className="d-none d-md-block"
+                src={hortifruti}
+                style={{ width: "70px" }}
+              />
               Hortifruti
             </Link>
           </div>
@@ -34,12 +38,19 @@ function NavBar() {
             <ul style={{ listStyleType: "none", marginBottom: "0px" }}>
               <li className="mt-2 d-flex justify-content-center">
                 Faça seu
-                <Link className="ms-1" to="/login" style={{ textDecoration: "none" }}>
+                <Link
+                  className="ms-1"
+                  to="/login"
+                  style={{ textDecoration: "none" }}
+                >
                   login!
                 </Link>
               </li>
               <li className="d-flex justify-content-center">
-                <Link to="/cadastrar-produto" style={{ textDecoration: "none" }}>
+                <Link
+                  to="/cadastrar-produto"
+                  style={{ textDecoration: "none" }}
+                >
                   Cadastrar produto
                 </Link>
               </li>
@@ -54,14 +65,22 @@ function NavBar() {
             <ul style={{ listStyleType: "none", marginBottom: "0px" }}>
               <li className="d-flex justify-content-center">
                 <Link to="/carrinho" style={{ textDecoration: "none" }}>
-                  <img className="d-none d-md-block" src={carrinho} style={{ width: "35px" }} />
+                  <img
+                    className="d-none d-md-block"
+                    src={carrinho}
+                    style={{ width: "35px" }}
+                  />
                   Carrinho
                 </Link>
               </li>
               <li className="d-flex justify-content-center">
                 R${" "}
                 {produtos
-                  .reduce((total, produto) => total + produto.qtdEstoque * produto.preco, 0)
+                  .reduce(
+                    (total, produto) =>
+                      total + produto.status * produto.valorEstimado,
+                    0
+                  )
                   .toLocaleString("pt-BR", {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2,
