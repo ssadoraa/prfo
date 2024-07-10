@@ -12,6 +12,7 @@ import CadastroDeProdutosPage from "../pages/produto/CadastroDeProdutosPage";
 import CadastroDeCategoriasPage from "../pages/categoria/CadastroDeCategoriasPage";
 import ListaMeusProdutosPage from "../pages/produto/ListaMeusProdutosPage";
 import CarrinhoPage from "../pages/geral/autenticate/CarrinhoPage";
+import ListaCategoriasPage from "../pages/categoria/ListaCategoriasPage";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
       { path: "cadastrar-produto", element: <CadastroDeProdutosPage /> },
       { path: "cadastrar-categoria", element: <CadastroDeCategoriasPage /> },
       { path: "listar-meus-produtos", element: <ListaMeusProdutosPage /> },
-      { path: "listar-categoria", element: <ListaMeusProdutosPage /> },
+      { path: "listar-categoria", element: <ListaCategoriasPage /> },
       { path: "carrinho", element: <CarrinhoPage /> },
     ],
   },

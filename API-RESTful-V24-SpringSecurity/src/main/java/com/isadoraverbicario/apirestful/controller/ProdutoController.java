@@ -21,12 +21,12 @@ public class ProdutoController {
     @Autowired
     private ProdutoService produtoService;
 
-    @GetMapping   // http://localhost:8080/produtos
+    @GetMapping
     public List<Produto> recuperarProdutos() {
         return produtoService.recuperarProdutos();
     }
 
-    @PostMapping   // http://localhost:8080/produtos
+    @PostMapping
     public Produto cadastrarProduto(@RequestBody Produto produto) {
         return produtoService.cadastrarProduto(produto);
     }
@@ -37,23 +37,22 @@ public class ProdutoController {
         return new ResponseEntity<Produto>(umProduto,HttpStatus.OK);
     }
 
-    @DeleteMapping ("{idProduto}")     // http://localhost:8080/produtos/1
+    @DeleteMapping ("{idProduto}")
     public Produto removerProduto(@PathVariable("idProduto") Long id) {
         return produtoService.removerProduto(id);
     }
 
-    @GetMapping("categoria/{idCategoria}")             // http://localhost:8080/produtos/categoria/1
+    @GetMapping("categoria/{idCategoria}")
     public List<Produto> recuperarProdutosPorIdDaCategoria(@PathVariable("idCategoria") Long idCategoria) {
         System.out.println(idCategoria);
         return produtoService.recuperarProdutosPorIdDaCategoria(idCategoria);
     }
 
-    @GetMapping("categorias")    // http://localhost:8080/produtos/categorias
+    @GetMapping("categorias")
     public List<Produto> recuperarProdutosComCategoria() {
         return produtoService.recuperarProdutosComCategoria();
     }
 
-    // http://localhost:8080/produtos/paginacao?pagina=0&tamanho=5
     @GetMapping("paginacao")
     public ResultadoPaginado<Produto> recuperarProdutosComPaginacao(
             @RequestParam(value = "pagina", defaultValue = "0") int pagina,
@@ -69,13 +68,11 @@ public class ProdutoController {
         return resultadoPaginado;
     }
 
-    // localhost:8080/produtos/slugCategoria/frutas
     @GetMapping("slugCategoria/{slug}")
     public List<Produto> recuperarProdutosPorSlugDaCategoria(@PathVariable("slug") String slug) {
         return produtoService.recuperarProdutosPorSlugDaCategoria(slug);
     }
 
-    // http://localhost:8080/produtos/categoria/paginacao?pagina=0&tamanho=6&slug=frutas
     @GetMapping("categoria/paginacao")
     public ResultadoPaginado<Produto> recuperarProdutosPaginadosPorSlugDaCategoria(
             @RequestParam(value = "pagina", defaultValue = "0") int pagina,

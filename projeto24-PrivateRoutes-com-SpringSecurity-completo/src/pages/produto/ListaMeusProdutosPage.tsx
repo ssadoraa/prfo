@@ -1,4 +1,4 @@
-import Paginacao from "../../components/Paginacao";
+import Paginacao from "../../components/PaginacaoProduto";
 import Pesquisa from "../../components/Pesquisa";
 import TabelaDeProdutos from "../../components/TabelaDeProdutos";
 import "../../css/geral.css";

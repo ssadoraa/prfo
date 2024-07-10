@@ -15,8 +15,6 @@ const useProdutosPaginadosPorSlugDaCategoria = (query: QueryString) => {
     queryFn: ({ pageParam }) =>
       recuperarProdutosPaginadosPorSluDaCategoria({
         params: {
-          // pagina: query.pagina,
-          // tamanho: query.tamanho
           pagina: pageParam,
           ...query,
         },

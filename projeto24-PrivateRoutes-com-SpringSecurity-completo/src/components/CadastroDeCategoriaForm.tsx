@@ -29,7 +29,7 @@ const CadastroDeCategoriasForm = () => {
   const navigate = useNavigate();
 
   const categoriaSelecionado = useCategoriaStore((s) => s.categoriaSelecionada);
-  const setCategoriaSelecionado = useCategoriaStore(
+  const setCategoriaSelecionada = useCategoriaStore(
     (s) => s.setCategoriaSelecionada
   );
 
@@ -47,7 +47,7 @@ const CadastroDeCategoriasForm = () => {
   useEffect(() => {
     setFocus("nome");
     reset();
-    setCategoriaSelecionado({} as Categoria);
+    setCategoriaSelecionada({} as Categoria);
     setValue("data_cadastro", dayjs().format("DD/MM/YYYY"));
   }, [isSubmitSuccessful]);
 

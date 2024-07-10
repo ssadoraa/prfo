@@ -9,6 +9,8 @@ import com.isadoraverbicario.apirestful.repository.CategoriaRepository;
 import jakarta.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -46,6 +48,14 @@ public class CategoriaService {
         }
     }
 
+    public Categoria removerCategoria(Long id) {
+        Categoria c = categoriaRepository.recuperarCategoriaPorId(id)
+            .orElseThrow(() -> new EntidadeNaoEncontradaException(
+                "Categoria número " + id + " não encontrado."));
+        categoriaRepository.delete(c);
+        return c;
+    }
+
     public Categoria recuperarCategoriaComProdutos(Long idCategoria) {
         return categoriaRepository.recuperarCategoriaComProdutosPorIdDaCategoria(idCategoria)
                 .orElseThrow(() -> new EntidadeNaoEncontradaException(
@@ -54,5 +64,9 @@ public class CategoriaService {
 
     public List<Categoria> recuperarCategorias() {
         return categoriaRepository.findAll();
+    }
+
+    public Page<Categoria> recuperarCategoriasComPaginacao(String nome, Pageable pageable) {
+        return categoriaRepository.recuperarCategoriasComPaginacao(nome, pageable);
     }
 }
