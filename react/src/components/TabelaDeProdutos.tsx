@@ -13,8 +13,11 @@ const TabelaDeProdutos = () => {
   const { mutate: removerProduto } = useRemoverProduto();
 
   const tratarRemocao = (id: number) => {
-    removerProduto(id);
-    setPagina(0);
+    // Confirmar a remoção
+    if (window.confirm("Tem certeza que deseja remover este produto?")) {
+      removerProduto(id);
+      setPagina(0);
+    }
   };
 
   const {
@@ -36,7 +39,7 @@ const TabelaDeProdutos = () => {
           <th className="align-middle text-center">Categoria</th>
           <th className="align-middle text-center">Nome</th>
           <th className="align-middle text-center">Data de Cadastro</th>
-          <th className="align-middle text-center">Ações</th>
+          <th className="align-middle text-center"></th>
         </tr>
       </thead>
       <tbody>
@@ -57,12 +60,21 @@ const TabelaDeProdutos = () => {
               {dayjs(produto.dataCadastro).format("DD/MM/YYYY")}
             </td>
             <td width="6%" className="align-middle text-center">
-              <button
-                onClick={() => tratarRemocao(produto.id!)}
-                className="btn btn-danger btn-sm"
-              >
-                Remover
-              </button>
+              <div className="dropdown">
+                <button
+                  className="btn btn-outline-info btn-sm dropdown-toggle"
+                  type="button"
+                  id={`dropdownMenuButton${produto.id}`}
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Ações
+                </button>
+                <ul className="dropdown-menu" aria-labelledby={`dropdownMenuButton${produto.id}`}>
+                  <li><button onClick={() => tratarRemocao(produto.id!)} className="dropdown-item">Remover</button></li>
+                  <li><Link to={`/${produto.id}/edit`} className="link-sem-underline dropdown-item">Editar</Link></li>
+                </ul>
+              </div>
             </td>
           </tr>
         ))}
@@ -70,4 +82,5 @@ const TabelaDeProdutos = () => {
     </table>
   );
 };
+
 export default TabelaDeProdutos;

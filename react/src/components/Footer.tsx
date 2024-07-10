@@ -3,14 +3,14 @@ import '../css/footer.css';
 
 const Footer = () => {
     return (
-        <footer className="bg-secondary text-white py-4">
+        <footer className="bg-secondary text-white py-3">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-md-4 mb-3">
                 <h5>Links Úteis</h5>
                 <ul className="list-unstyled">
-                  <li><a href="/" className="text-white">Início</a></li>
                   <li><a href="/sobre" className="text-white">Sobre</a></li>
+                  <li><a href="/suporte" className="text-white">Suporte</a></li>
                 </ul>
               </div>
               <div className="col-md-4 mb-3">
@@ -22,7 +22,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="bg-secondary text-center py-2">
+          <div className="bg-secondary text-center py-1">
             <p className="mb-0">&copy; 2024 Troca Na Boa. Todos os direitos reservados.</p>
           </div>
         </footer>

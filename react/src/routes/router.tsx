@@ -43,6 +43,7 @@ const router = createBrowserRouter([
     element: <PrivateRoutes />,
     errorElement: <ErrorPage />,
     children: [
+      { path: ":id/edit", element: <CadastroDeProdutosPage /> },
       { path: "cadastrar-produto", element: <CadastroDeProdutosPage /> },
       { path: "cadastrar-categoria", element: <CadastroDeCategoriasPage /> },
       { path: "listar-meus-produtos", element: <ListaMeusProdutosPage /> },

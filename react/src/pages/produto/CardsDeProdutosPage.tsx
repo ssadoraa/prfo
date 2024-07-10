@@ -52,7 +52,7 @@ const CardsDeProdutosPage = () => {
                     <input
                       type="button"
                       className="btn btn-primary btn-sm w-100"
-                      value="Comprar"
+                      value="Adicionar"
                     />
                   }
                 />

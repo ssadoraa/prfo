@@ -22,7 +22,7 @@ function NavBar() {
                 <li><Link className="dropdown-item" to="/cadastrar-produto">Cadastrar produto</Link></li>
               </ul>
             </li>
-            <li className="nav-item dropdown">
+            <li className="nav-item dropdown me-5">
               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Categorias
               </a>
@@ -30,12 +30,6 @@ function NavBar() {
                 <li><Link className="dropdown-item" to="/listar-categoria">Listar categorias</Link></li>
                 <li><Link className="dropdown-item" to="/cadastrar-categoria">Cadastrar categoria</Link></li>
               </ul>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/sobre">Sobre</Link>
-            </li>
-            <li className="nav-item me-5">
-              <Link className="nav-link" to="/suporte">Suporte</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link me-5" to="/produtos-selecionados">Produtos Selecionados</Link>
