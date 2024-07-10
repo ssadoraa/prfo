@@ -29,3 +29,17 @@ label {
 footer {
     margin-top: 50px;
 }
+
+.link-sem-underline {
+    text-decoration: none;
+    color: black;
+}
+
+.form-container {
+    margin: 20px auto;
+    padding: 20px; 
+    border: 1px solid #ced4da; 
+    border-radius: 5px;
+    max-width: 600px;
+}  
+  

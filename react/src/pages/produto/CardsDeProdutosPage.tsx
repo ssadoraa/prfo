@@ -1,5 +1,5 @@
 import "../../css/geral.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Card from "../../components/Card";
 import useProdutosPaginadosPorSlugDaCategoria from "../../hooks/produto/useProdutosPaginadosPorSlugDaCategoria";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -38,23 +38,25 @@ const CardsDeProdutosPage = () => {
               key={produto.id}
               className="col-lg-2 col-md-3 col-sm-4 col-6 mb-3"
             >
-              <Card
-                imagem={produto.imagem}
-                titulo={produto.nome}
-                descricao={produto.condicao}
-                valorEstimado={produto.valorEstimado.toLocaleString("pt-BR", {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                  useGrouping: true,
-                })}
-                footer={
-                  <input
-                    type="button"
-                    className="btn btn-primary btn-sm w-100"
-                    value="Comprar"
-                  />
-                }
-              />
+              <Link to={`/${produto.id}`} className="link-sem-underline">
+                <Card
+                  imagem={produto.imagem}
+                  titulo={produto.nome}
+                  descricao={produto.condicao}
+                  valorEstimado={produto.valorEstimado.toLocaleString("pt-BR", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                    useGrouping: true,
+                  })}
+                  footer={
+                    <input
+                      type="button"
+                      className="btn btn-primary btn-sm w-100"
+                      value="Comprar"
+                    />
+                  }
+                />
+              </Link>
             </div>
           ))
         )}

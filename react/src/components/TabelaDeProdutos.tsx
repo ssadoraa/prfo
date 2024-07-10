@@ -49,7 +49,7 @@ const TabelaDeProdutos = () => {
               {produto.categoria.nome}
             </td>
             <td width="30%" className="align-middle">
-              <Link to={`/${produto.id}`}>
+              <Link to={`/${produto.id}`} className="link-sem-underline">
                 {produto.nome}
               </Link>
             </td>

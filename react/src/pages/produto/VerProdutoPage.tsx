@@ -20,10 +20,11 @@ function VerProdutoPage() {
     return (<div className="container mt-5">Dados do produto não encontrados.</div>);
 
   return (
-    <div className="container mt-5">
-      <h2>Detalhes do Produto</h2>
+    <div className="container mt-4">
+      <h3>Detalhes do Produto</h3>
+      <hr className="mt-1 mb-4" />
       <div className="row mt-4">
-        <div className="col-md-5 me-5">
+        <div className="col-md-5 me-5 mb-4">
           <h4>Imagens</h4>
           <ul className="nav nav-tabs" id="imagensTab" role="tablist">
             <li className="nav-item" role="presentation">
