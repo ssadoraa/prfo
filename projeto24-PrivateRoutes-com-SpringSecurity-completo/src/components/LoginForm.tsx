@@ -38,7 +38,7 @@ const LoginForm = () => {
     setFocus("username");
     setTentouLogar(false);
     setUsuarioLogado("");
-    TokenClass.resetToken();      // <===================================
+    TokenClass.resetToken();
   }, []);
 
   const onSubmit = ({ username, password }: FormLogin) => {
@@ -47,14 +47,14 @@ const LoginForm = () => {
     efetuarLogin(usuario, {
       onSuccess: (tokenResponse: TokenResponse) => {
         setUsuarioLogado(username);
-        TokenClass.criarToken(tokenResponse.token); // <===============================
+        TokenClass.criarToken(tokenResponse.token);
         
         console.log(tokenResponse);
 
         if (location.state && location.state.from) {
           navigate(location.state.from);
         } else {
-          navigate("/"); // <== exibe a home page
+          navigate("/");
         }
       },
       onError: () => {

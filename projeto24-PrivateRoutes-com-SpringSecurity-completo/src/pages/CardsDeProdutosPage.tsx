@@ -1,3 +1,4 @@
+import "../css/geral.css";
 import { useParams } from "react-router-dom";
 import Card from "../components/Card";
 import useProdutosPaginadosPorSlugDaCategoria from "../hooks/useProdutosPaginadosPorSlugDaCategoria";

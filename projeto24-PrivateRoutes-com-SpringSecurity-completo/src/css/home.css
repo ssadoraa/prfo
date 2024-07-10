@@ -1,0 +1,14 @@
+.card-link {
+    text-decoration: none;
+}
+
+.card-custom {
+    height: 350px;
+}
+
+.img-circle {
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    opacity: 0.9;
+}

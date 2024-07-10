@@ -1,3 +1,5 @@
+import "../css/geral.css";
+
 const CarrinhoPage = () => {
   return <div>CarrinhoPage</div>;
 };
