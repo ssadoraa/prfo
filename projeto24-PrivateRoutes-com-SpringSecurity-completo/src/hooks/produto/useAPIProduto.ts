@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
-import CustomError from "../util/CustomError";
-import { URL_BASE, URL_PRODUTO } from "../util/constants";
-import Produto from "../interfaces/produto";
+import CustomError from "../../util/CustomError";
+import { URL_BASE, URL_PRODUTO } from "../../util/constants";
+import Produto from "../../interfaces/produto";
 
 const useAPIProduto = () => {
   const axiosInstance = axios.create({

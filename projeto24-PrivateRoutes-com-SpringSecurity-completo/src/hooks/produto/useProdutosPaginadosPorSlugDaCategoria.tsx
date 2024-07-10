@@ -1,5 +1,5 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import Produto from "../interfaces/produto";
+import Produto from "../../interfaces/produto";
 import useAPIProduto from "./useAPIProduto";
 
 interface QueryString {
@@ -23,7 +23,7 @@ const useProdutosPaginadosPorSlugDaCategoria = (query: QueryString) => {
       }),
     initialPageParam: 0,
     staleTime: 10_000,
-    getNextPageParam: (lastPage, allPages) => {
+    getNextPageParam: (lastPage) => {
       return lastPage.paginaCorrente < lastPage.totalDePaginas - 1
         ? lastPage.paginaCorrente + 1
         : undefined;

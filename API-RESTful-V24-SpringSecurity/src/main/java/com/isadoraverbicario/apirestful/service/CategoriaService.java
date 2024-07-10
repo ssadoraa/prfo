@@ -1,8 +1,13 @@
 package com.isadoraverbicario.apirestful.service;
 
+import com.isadoraverbicario.apirestful.exception.EntidadeDestacadaException;
 import com.isadoraverbicario.apirestful.exception.EntidadeNaoEncontradaException;
+import com.isadoraverbicario.apirestful.exception.EntidadeTransienteException;
 import com.isadoraverbicario.apirestful.model.Categoria;
 import com.isadoraverbicario.apirestful.repository.CategoriaRepository;
+
+import jakarta.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -16,6 +21,29 @@ public class CategoriaService {
 
     public Optional<Categoria> recuperarCategoria(Long idCategoria) {
         return categoriaRepository.findById(idCategoria);
+    }
+
+    public Categoria cadastrarCategoria(Categoria categoria) {
+        if (categoria.getId() == null) {
+            return categoriaRepository.save(categoria);
+        }
+        else {
+            throw new EntidadeDestacadaException(
+                "Tentando cadastrar um objeto destacado.");
+        }
+    }
+
+    @Transactional
+    public Categoria alterarCategoria(Categoria categoria) {
+        if (categoria.getId() == null) {
+            throw new EntidadeTransienteException("Tentando alterar um objeto transiente.");
+        }
+        else {
+            categoriaRepository.recuperarPorIdComLock(categoria.getId())
+                .orElseThrow(() -> new EntidadeNaoEncontradaException(
+                      "Categoria número " + categoria.getId() + " não encontrado."));
+            return categoriaRepository.save(categoria);
+        }
     }
 
     public Categoria recuperarCategoriaComProdutos(Long idCategoria) {

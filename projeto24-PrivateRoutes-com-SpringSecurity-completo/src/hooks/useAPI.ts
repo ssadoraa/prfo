@@ -14,7 +14,10 @@ const useAPI = <T>(endpoint: string) => {
       .then((response) => response.data)
       .catch((error) => {
         if (error.response) {
-          throw new CustomError(error.response.data.message, error.response.data.errorCode);
+          throw new CustomError(
+            error.response.data.message,
+            error.response.data.errorCode
+          );
           // significa servidor respondeu
         } else if (error.request) {
           throw error;
@@ -26,13 +29,18 @@ const useAPI = <T>(endpoint: string) => {
       });
 
   const remover = (id: number) => {
-    const token: string = TokenClass.getToken();   // <====================================
+    const token: string = TokenClass.getToken(); // <====================================
     return axiosInstance
-      .delete<T>(endpoint + "/" + id, { headers: { Authorization: `Bearer ${token}` } })
+      .delete<T>(endpoint + "/" + id, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => response.data)
       .catch((error) => {
         if (error.response) {
-          throw new CustomError(error.response.data.message, error.response.data.errorCode);
+          throw new CustomError(
+            error.response.data.message,
+            error.response.data.errorCode
+          );
           // significa servidor respondeu
         } else if (error.request) {
           throw error;
@@ -50,7 +58,10 @@ const useAPI = <T>(endpoint: string) => {
       .then((response) => response.data)
       .catch((error) => {
         if (error.response) {
-          throw new CustomError(error.response.data.message, error.response.data.errorCode);
+          throw new CustomError(
+            error.response.data.message,
+            error.response.data.errorCode
+          );
           // significa servidor respondeu
         } else if (error.request) {
           throw error;
@@ -62,7 +73,7 @@ const useAPI = <T>(endpoint: string) => {
       });
 
   const cadastrar = (obj: T) => {
-    const token: string = TokenClass.getToken();  // <====================================
+    const token: string = TokenClass.getToken(); // <====================================
     return axiosInstance
       .post<T>(endpoint, obj, { headers: { Authorization: `Bearer ${token}` } })
       .then((response) => response.data)
@@ -79,9 +90,15 @@ const useAPI = <T>(endpoint: string) => {
           } else if (error.response.status === 401) {
             throw new CustomError("Você não está autenticado.", 401);
           } else if (error.response.status === 403) {
-            throw new CustomError("Você nãao tem permissão para acessar este recurso.", 403);
+            throw new CustomError(
+              "Você nãao tem permissão para acessar este recurso.",
+              403
+            );
           } else {
-            throw new CustomError(error.response.data.message, error.response.data.errorCode);
+            throw new CustomError(
+              error.response.data.message,
+              error.response.data.errorCode
+            );
           }
         } else if (error.request) {
           throw error;
@@ -94,7 +111,7 @@ const useAPI = <T>(endpoint: string) => {
   };
 
   const alterar = (obj: T) => {
-    const token: string = TokenClass.getToken();  // <====================================
+    const token: string = TokenClass.getToken(); // <====================================
     return axiosInstance
       .put<T>(endpoint, obj, { headers: { Authorization: `Bearer ${token}` } })
       .then((response) => response.data)
@@ -109,7 +126,10 @@ const useAPI = <T>(endpoint: string) => {
               Object.values(error.response.data.map)
             );
           } else {
-            throw new CustomError(error.response.data.message, error.response.data.errorCode);
+            throw new CustomError(
+              error.response.data.message,
+              error.response.data.errorCode
+            );
           }
         } else if (error.request) {
           throw error;

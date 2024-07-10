@@ -1,8 +1,8 @@
 import dayjs from "dayjs";
 import deleteIcon from "../assets/skin/database_delete.png";
-import useProdutosComPaginacao from "../hooks/useProdutosComPaginacao";
+import useProdutosComPaginacao from "../hooks/produto/useProdutosComPaginacao";
 import useProdutoStore from "../store/produtoStore";
-import useRemoverProduto from "../hooks/useRemoverProduto";
+import useRemoverProduto from "../hooks/produto/useRemoverProduto";
 
 const TabelaDeProdutos = () => {
   const pagina = useProdutoStore((s) => s.pagina);

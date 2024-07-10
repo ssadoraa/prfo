@@ -1,5 +1,6 @@
 interface Categoria {
-    id: number;
+    id?: number;
     nome: string;
+    dataCadastro: Date;
 }
 export default Categoria;

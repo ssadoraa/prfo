@@ -5,6 +5,8 @@ import com.isadoraverbicario.apirestful.model.Categoria;
 import com.isadoraverbicario.apirestful.model.CategoriaDTO;
 import com.isadoraverbicario.apirestful.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +22,17 @@ public class CategoriaController {
     @GetMapping
     public List<Categoria> recuperarCategorias() {
         return categoriaService.recuperarCategorias();
+    }
+
+    @PostMapping
+    public Categoria cadastrarCategoria(@RequestBody Categoria categoria) {
+        return categoriaService.cadastrarCategoria(categoria);
+    }
+
+    @PutMapping
+    public ResponseEntity<Categoria> alterarCategoria(@RequestBody Categoria categoria) {
+        Categoria umCategoria = categoriaService.alterarCategoria(categoria);
+        return new ResponseEntity<Categoria>(umCategoria,HttpStatus.OK);
     }
 
     @GetMapping("{idCategoria}")

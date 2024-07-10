@@ -1,7 +1,7 @@
 import "../css/geral.css";
 import { useParams } from "react-router-dom";
 import Card from "../components/Card";
-import useProdutosPaginadosPorSlugDaCategoria from "../hooks/useProdutosPaginadosPorSlugDaCategoria";
+import useProdutosPaginadosPorSlugDaCategoria from "../hooks/produto/useProdutosPaginadosPorSlugDaCategoria";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const CardsDeProdutosPage = () => {
