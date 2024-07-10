@@ -28,8 +28,29 @@ const useAPI = <T>(endpoint: string) => {
         }
       });
 
+  const recuperarById = (id: number) => {
+    return axiosInstance
+      .get<T>(endpoint + "/" + id)
+      .then((response) => response.data)
+      .catch((error) => {
+        if (error.response) {
+          throw new CustomError(
+            error.response.data.message,
+            error.response.data.errorCode
+          );
+          // significa servidor respondeu
+        } else if (error.request) {
+          throw error;
+          // significa que o servidor não respondeu
+        } else {
+          throw error;
+          // erro desconhecido
+        }
+      });
+  };
+
   const remover = (id: number) => {
-    const token: string = TokenClass.getToken(); // <====================================
+    const token: string = TokenClass.getToken();
     return axiosInstance
       .delete<T>(endpoint + "/" + id, {
         headers: { Authorization: `Bearer ${token}` },
@@ -73,7 +94,7 @@ const useAPI = <T>(endpoint: string) => {
       });
 
   const cadastrar = (obj: T) => {
-    const token: string = TokenClass.getToken(); // <====================================
+    const token: string = TokenClass.getToken();
     return axiosInstance
       .post<T>(endpoint, obj, { headers: { Authorization: `Bearer ${token}` } })
       .then((response) => response.data)
@@ -111,7 +132,7 @@ const useAPI = <T>(endpoint: string) => {
   };
 
   const alterar = (obj: T) => {
-    const token: string = TokenClass.getToken(); // <====================================
+    const token: string = TokenClass.getToken();
     return axiosInstance
       .put<T>(endpoint, obj, { headers: { Authorization: `Bearer ${token}` } })
       .then((response) => response.data)
@@ -141,6 +162,6 @@ const useAPI = <T>(endpoint: string) => {
       });
   };
 
-  return { recuperar, remover, recuperarPagina, cadastrar, alterar };
+  return { recuperar, recuperarById, remover, recuperarPagina, cadastrar, alterar };
 };
 export default useAPI;

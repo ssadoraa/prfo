@@ -13,6 +13,7 @@ import CadastroDeCategoriasPage from "../pages/categoria/CadastroDeCategoriasPag
 import ListaMeusProdutosPage from "../pages/produto/ListaMeusProdutosPage";
 import CarrinhoPage from "../pages/geral/autenticate/CarrinhoPage";
 import ListaCategoriasPage from "../pages/categoria/ListaCategoriasPage";
+import VerProdutoPage from "../pages/produto/VerProdutoPage";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
       },
       { path: "sobre", element: <SobrePage /> },
       { path: "suporte", element: <SuportePage /> },
+      { path: ":id", element: <VerProdutoPage /> },
       { path: "login", element: <LoginPage /> },
     ],
   },

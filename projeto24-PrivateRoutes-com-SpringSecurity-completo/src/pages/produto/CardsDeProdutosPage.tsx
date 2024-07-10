@@ -41,7 +41,7 @@ const CardsDeProdutosPage = () => {
               <Card
                 imagem={produto.imagem}
                 titulo={produto.nome}
-                descricao={produto.descricao}
+                descricao={produto.condicao}
                 valorEstimado={produto.valorEstimado.toLocaleString("pt-BR", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,

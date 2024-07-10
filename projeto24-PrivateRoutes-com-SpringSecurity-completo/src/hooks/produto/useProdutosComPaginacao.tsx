@@ -17,8 +17,6 @@ const useProdutosComPaginacao = (query: QueryString) => {
     queryFn: () =>
       recuperarPagina({
         params: {
-          // pagina: query.pagina,
-          // tamanho: query.tamanho
           ...query,
         },
       }),

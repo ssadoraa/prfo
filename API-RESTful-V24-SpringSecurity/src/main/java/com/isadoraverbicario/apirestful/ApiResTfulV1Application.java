@@ -83,7 +83,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		
 		produto = new Produto(
@@ -94,7 +95,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -104,7 +106,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -114,7 +117,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -124,7 +128,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -134,7 +139,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -144,7 +150,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -154,7 +161,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -164,7 +172,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -174,7 +183,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -184,7 +194,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -194,7 +205,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -204,7 +216,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -214,7 +227,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -224,7 +238,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -234,7 +249,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -244,7 +260,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -254,7 +271,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -264,7 +282,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 		produto = new Produto(
 				"abacate.png",
@@ -274,7 +293,8 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"Ativo",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
-				fruta);
+				fruta,
+				1L);
 		produtoRepository.save(produto);
 	}
 }

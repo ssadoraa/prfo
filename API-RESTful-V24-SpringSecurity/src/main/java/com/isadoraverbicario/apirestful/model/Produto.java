@@ -43,6 +43,9 @@ public class Produto {
     @ManyToOne
     private Categoria categoria;
 
+    @NotNull
+    private Long usuarioId;
+
     public Produto(String imagem,
                    String nome,
                    String descricao,
@@ -50,7 +53,8 @@ public class Produto {
                    String status,
                    BigDecimal valorEstimado,
                    LocalDate dataCadastro,
-                   Categoria categoria) {
+                   Categoria categoria,
+                   Long usuarioId) {
         this.imagem = imagem;
         this.nome = nome;
         this.descricao = descricao;
@@ -59,5 +63,6 @@ public class Produto {
         this.valorEstimado = valorEstimado;
         this.dataCadastro = dataCadastro;
         this.categoria = categoria;
+        this.usuarioId = usuarioId;
     }
 }

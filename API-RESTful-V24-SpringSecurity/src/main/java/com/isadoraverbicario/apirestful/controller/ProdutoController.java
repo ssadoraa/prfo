@@ -42,9 +42,13 @@ public class ProdutoController {
         return produtoService.removerProduto(id);
     }
 
+    @GetMapping("{idProduto}")
+    public Produto recuperarProdutoPorId(@PathVariable("idProduto") Long id) {
+        return produtoService.recuperarProdutoById(id);
+    }
+    
     @GetMapping("categoria/{idCategoria}")
     public List<Produto> recuperarProdutosPorIdDaCategoria(@PathVariable("idCategoria") Long idCategoria) {
-        System.out.println(idCategoria);
         return produtoService.recuperarProdutosPorIdDaCategoria(idCategoria);
     }
 

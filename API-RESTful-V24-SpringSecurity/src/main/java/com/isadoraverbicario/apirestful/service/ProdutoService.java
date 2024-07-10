@@ -54,6 +54,10 @@ public class ProdutoService {
         return p;
     }
 
+    public Produto recuperarProdutoById(Long id) {
+        return produtoRepository.recuperarProdutoPorId(id).orElse(null);
+    }
+    
     public List<Produto> recuperarProdutosPorIdDaCategoria(Long idCategoria) {
         return produtoRepository.findByCategoriaId(idCategoria);
     }

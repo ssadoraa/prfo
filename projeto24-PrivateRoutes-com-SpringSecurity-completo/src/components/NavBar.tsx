@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import '../css/geral.css';
-import '../css/modal.css';
 
 function NavBar() {
 
