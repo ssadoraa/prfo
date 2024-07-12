@@ -256,6 +256,17 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				brinquedos,
 				1L);
 		produtoRepository.save(bola);
+		
+		Produto cd = new Produto(
+				"cd.png",
+				"CD",
+				"CD Guns Roses",
+				"usado",
+				BigDecimal.valueOf(15.99),
+				LocalDate.of(2024, 7, 12),
+				brinquedos,
+				1L);
+		produtoRepository.save(cd);
 
 	}
 }
