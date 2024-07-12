@@ -43,6 +43,7 @@ const CardsDeProdutosPage = () => {
               className="col-lg-2 col-md-3 col-sm-4 col-6 mb-3"
             >
               <Card
+                id={produto.id}
                 imagem={produto.imagem}
                 titulo={produto.nome}
                 descricao={produto.condicao}

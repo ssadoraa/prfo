@@ -3,7 +3,7 @@ import '../css/footer.css';
 
 const Footer = () => {
     return (
-        <footer className="bg-secondary text-white py-3">
+        <footer className="footer-custom">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-md-4 mb-3">
@@ -22,11 +22,11 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="bg-secondary text-center py-1">
-            <p className="mb-0">&copy; 2024 Troca Na Boa. Todos os direitos reservados.</p>
+          <div className="text-center">
+            <p>&copy; 2024 Troca Na Boa. Todos os direitos reservados.</p>
           </div>
         </footer>
     );
-           
 }
+
 export default Footer;

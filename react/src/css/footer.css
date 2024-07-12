@@ -1,0 +1,9 @@
+.footer-custom {
+    background-color: #a2a2a2;
+    color: white;
+    padding: 20px 0;
+}
+
+.footer-custom p {
+    margin-bottom: 0;
+}
