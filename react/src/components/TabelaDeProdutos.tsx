@@ -1,11 +1,14 @@
+import { useState } from "react";
 import dayjs from "dayjs";
-import useProdutosComPaginacao from "../hooks/produto/useProdutosComPaginacao";
-import useProdutoStore from "../store/produtoStore";
-import useRemoverProduto from "../hooks/produto/useRemoverProduto";
+import { BiUpArrow, BiDownArrow } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import useProdutoStore from "../store/produtoStore";
 import useUsuarioStore from "../store/usuarioStore";
+import useProdutosComPaginacao from "../hooks/produto/useProdutosComPaginacao";
+import useRemoverProduto from "../hooks/produto/useRemoverProduto";
 
 const TabelaDeProdutos = () => {
+  const [ordenacao, setOrdenacao] = useState({ coluna: 'id', direcao: 'asc' });
   const pagina = useProdutoStore((s) => s.pagina);
   const tamanho = useProdutoStore((s) => s.tamanho);
   const nome = useProdutoStore((s) => s.nome);
@@ -25,7 +28,21 @@ const TabelaDeProdutos = () => {
     data: resultadoPaginado,
     isPending: carregandoProdutos,
     error: errorProdutos,
-  } = useProdutosComPaginacao({ pagina, tamanho, nome, usuarioId });
+  } = useProdutosComPaginacao({ pagina, tamanho, nome, usuarioId, ...ordenacao });
+
+  const ordenarPor = (coluna: string) => {
+    const novaDirecao = coluna === ordenacao.coluna && ordenacao.direcao === 'asc' ? 'desc' : 'asc';
+    setOrdenacao({ coluna, direcao: novaDirecao });
+    setPagina(0);
+  };
+
+  const iconOrdenacao = (coluna: string) => {
+    if (ordenacao.coluna !== coluna) {
+      return null;
+    }
+
+    return ordenacao.direcao === 'asc' ? <BiUpArrow /> : <BiDownArrow />;
+  };
 
   if (carregandoProdutos) return <h6>Carregando...</h6>;
   if (errorProdutos) throw errorProdutos;
@@ -36,10 +53,18 @@ const TabelaDeProdutos = () => {
     <table className="table table-responsive table-sm table-hover table-bordered">
       <thead>
         <tr>
-          <th className="align-middle text-center">Id</th>
-          <th className="align-middle text-center">Categoria</th>
-          <th className="align-middle text-center">Nome</th>
-          <th className="align-middle text-center">Data de Cadastro</th>
+          <th className="align-middle text-center" onClick={() => ordenarPor('id')}>
+            Id {iconOrdenacao('id')}
+          </th>
+          <th className="align-middle text-center" onClick={() => ordenarPor('categoria')}>
+            Categoria {iconOrdenacao('categoria')}
+          </th>
+          <th className="align-middle text-center" onClick={() => ordenarPor('nome')}>
+            Nome {iconOrdenacao('nome')}
+          </th>
+          <th className="align-middle text-center" onClick={() => ordenarPor('dataCadastro')}>
+            Data de Cadastro {iconOrdenacao('dataCadastro')}
+          </th>
           <th className="align-middle text-center"></th>
         </tr>
       </thead>

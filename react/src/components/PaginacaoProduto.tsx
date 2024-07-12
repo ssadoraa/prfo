@@ -1,6 +1,6 @@
-import useProdutosComPaginacao from "../hooks/produto/useProdutosComPaginacao";
 import useProdutoStore from "../store/produtoStore";
 import useUsuarioStore from "../store/usuarioStore";
+import useProdutosComPaginacao from "../hooks/produto/useProdutosComPaginacao";
 
 const Paginacao = () => {
   const pagina = useProdutoStore((s) => s.pagina);
@@ -13,11 +13,19 @@ const Paginacao = () => {
     setPagina(pagina);
   };
 
+  // Defina os valores padrão para coluna e direcao, ou passe explicitamente caso sejam definidos em outro lugar
   const {
     data: resultadoPaginado,
     isPending: carregandoProdutos,
     error: errorProdutos,
-  } = useProdutosComPaginacao({ pagina, tamanho, nome, usuarioId });
+  } = useProdutosComPaginacao({
+    pagina,
+    tamanho,
+    nome,
+    usuarioId,
+    coluna: 'id',  // Defina a coluna padrão para ordenação (exemplo)
+    direcao: 'asc',  // Defina a direção padrão para ordenação (exemplo)
+  });
 
   if (carregandoProdutos) return <h6>Carregando...</h6>;
   if (errorProdutos) throw errorProdutos;

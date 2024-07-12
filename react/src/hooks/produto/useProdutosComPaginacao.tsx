@@ -8,6 +8,8 @@ interface QueryString {
   tamanho: number;
   nome: string;
   usuarioId: number;
+  coluna: string;
+  direcao: string;
 }
 
 const useProdutosComPaginacao = (query: QueryString) => {
@@ -18,7 +20,12 @@ const useProdutosComPaginacao = (query: QueryString) => {
     queryFn: () =>
       recuperarPagina({
         params: {
-          ...query,
+          pagina: query.pagina,
+          tamanho: query.tamanho,
+          nome: query.nome,
+          usuarioId: query.usuarioId,
+          coluna: query.coluna,
+          direcao: query.direcao,
         },
       }),
     staleTime: 10_000,

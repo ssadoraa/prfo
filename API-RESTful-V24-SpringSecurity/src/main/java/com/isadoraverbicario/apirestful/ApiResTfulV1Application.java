@@ -264,7 +264,7 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"usado",
 				BigDecimal.valueOf(15.99),
 				LocalDate.of(2024, 7, 12),
-				brinquedos,
+				musica,
 				1L);
 		produtoRepository.save(cd);
 
