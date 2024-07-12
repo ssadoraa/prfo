@@ -67,7 +67,6 @@ public class ProdutoService {
     }
 
     public Page<Produto> recuperarProdutosComPaginacao(String nome, Long usuadioId, Pageable pageable) {
-        System.out.println(pageable);
         return produtoRepository.recuperarProdutosComPaginacao(nome, usuadioId, pageable);
     }
 

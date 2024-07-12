@@ -27,8 +27,7 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
         value = "select p from Produto p " +
                 "left outer join fetch p.categoria " +
                 "where p.nome like %:nome% " +
-                "and p.usuarioId = :usuarioId " +
-                "order by p.id",
+                "and p.usuarioId = :usuarioId ",
         countQuery = "select count(p) " +
                 "from Produto p " +
                 "where p.nome like %:nome% " +
