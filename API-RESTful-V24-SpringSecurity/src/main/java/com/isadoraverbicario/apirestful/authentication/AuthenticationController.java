@@ -40,13 +40,14 @@ public class AuthenticationController {
         try {
             System.out.println("Antes de chamar authenticationManager.authenticate(usernamePassword)");
             Authentication authentication = authenticationManager.authenticate(usernamePassword);
+            Usuario usuario = (Usuario) authentication.getPrincipal();
 
             System.out.println("Após de chamar authenticationManager.authenticate(usernamePassword)");
             System.out.println("Antes de gerar o token.");
             var token = tokenService.gerarToken((Usuario) authentication.getPrincipal());
             System.out.println("Após gerar o token = " + token);
 
-            return new TokenResponse(token);
+            return new TokenResponse(token, usuario.getId());
         }
         catch(IllegalArgumentException |
               JWTCreationException |

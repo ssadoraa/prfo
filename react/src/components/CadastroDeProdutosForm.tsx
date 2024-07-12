@@ -15,6 +15,7 @@ import useAlterarProduto from "../hooks/produto/useAlterarProduto";
 import CustomError from "../util/CustomError";
 import { useNavigate } from "react-router-dom";
 import useCategorias from "../hooks/categoria/useCategorias";
+import useUsuarioStore from "../store/usuarioStore";
 
 const categoriaValida = (categoria: string) => {
   return categoria !== "0";
@@ -45,6 +46,7 @@ const schema = z.object({
     .min(1, { message: "A imagem deve ser informada." })
     .regex(regexImagem, { message: "Nome de imagem inválido." }),
   condicao: z.string().min(1, { message: "A condição deve ser informada." }),
+  usuarioId: z.number()
 });
 
 const CadastroDeProdutosForm = () => {
@@ -52,6 +54,7 @@ const CadastroDeProdutosForm = () => {
 
   const produtoSelecionado = useProdutoStore((s) => s.produtoSelecionado);
   const setProdutoSelecionado = useProdutoStore((s) => s.setProdutoSelecionado);
+  const usuarioId = useUsuarioStore((s) => s.usuarioId);
 
   const { data: categorias = [] } = useCategorias();
 
@@ -123,6 +126,7 @@ const CadastroDeProdutosForm = () => {
       ),
       status,
       valorEstimado,
+      usuarioId
     };
     if (produtoSelecionado.id) {
       produto.id = produtoSelecionado.id;
@@ -143,6 +147,7 @@ const CadastroDeProdutosForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} autoComplete="Off">
+      <input type="hidden" {...register("usuarioId", { valueAsNumber: true })} value={usuarioId} />
       <div className="mb-3">
         <label htmlFor="nome" className="fw-bold">
           Nome

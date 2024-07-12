@@ -10,5 +10,6 @@ interface Produto {
   dataCadastro: Date;
   status: string;
   valorEstimado: number;
+  usuarioId: number;
 }
 export default Produto;

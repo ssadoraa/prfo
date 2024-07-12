@@ -19,6 +19,7 @@ const schema = z.object({
 type FormLogin = z.infer<typeof schema>;
 
 const LoginForm = () => {
+  const setUsuarioId = useUsuarioStore((s) => s.setUsuarioId);
   const setUsuarioLogado = useUsuarioStore((s) => s.setUsuarioLogado);
   const setTentouLogar = useUsuarioStore((s) => s.setTentouLogar);
   const tentouLogar = useUsuarioStore((s) => s.tentouLogar);
@@ -48,10 +49,8 @@ const LoginForm = () => {
     efetuarLogin(usuario, {
       onSuccess: (tokenResponse: TokenResponse) => {
         setUsuarioLogado(username);
+        setUsuarioId(tokenResponse.userId);
         TokenClass.criarToken(tokenResponse.token);
-        
-        console.log(tokenResponse);
-
         if (location.state && location.state.from) {
           navigate(location.state.from);
         } else {
@@ -122,7 +121,6 @@ const LoginForm = () => {
           </div>
         </form>
       </div>
-
     </>
   );
 };
