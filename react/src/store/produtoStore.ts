@@ -15,7 +15,7 @@ interface ProdutoStore {
 
 const useProdutoStore = create<ProdutoStore>((set) => ({
     pagina: 0,
-    tamanho: 5,
+    tamanho: 10,
     nome: "",
     produtoSelecionado: {} as Produto,
 

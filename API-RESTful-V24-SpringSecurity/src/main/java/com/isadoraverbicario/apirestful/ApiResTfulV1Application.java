@@ -132,8 +132,337 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				"abacate.png",
 				"Abacate",
 				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				1L);
+		produtoRepository.save(produto);
+		produto = new Produto(
+				"abacate.png",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"usado",
 				BigDecimal.valueOf(2.45),
 				LocalDate.of(2023, 4, 26),
 				fruta,

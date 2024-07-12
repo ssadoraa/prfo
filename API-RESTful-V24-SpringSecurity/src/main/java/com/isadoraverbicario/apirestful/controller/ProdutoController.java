@@ -62,9 +62,9 @@ public class ProdutoController {
             @RequestParam(value = "pagina", defaultValue = "0") int pagina,
             @RequestParam(value = "tamanho", defaultValue = "3") int tamanho,
             @RequestParam(value = "nome", defaultValue = "") String nome,
-            @RequestParam(value = "usuarioId") Long usuarioId) { // Adicione o usuarioId aqui
+            @RequestParam(value = "usuarioId") Long usuarioId) {
         Pageable pageable = PageRequest.of(pagina, tamanho);
-        Page<Produto> page = produtoService.recuperarProdutosComPaginacao(nome, usuarioId, pageable); // Passar usuarioId para o serviço
+        Page<Produto> page = produtoService.recuperarProdutosComPaginacao(nome, usuarioId, pageable);
         ResultadoPaginado<Produto> resultadoPaginado = new ResultadoPaginado<>(
                 page.getTotalElements(),
                 page.getTotalPages(),

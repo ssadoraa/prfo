@@ -30,9 +30,6 @@ public class Produto {
     @NotEmpty(message = "A 'Condição' deve ser informada.")
     private String condicao;
 
-    @NotNull(message = "O 'Status' deve ser informado.")
-    private String status;
-
     @NotNull(message = "O 'Valor Estimado' deve ser informado.")
     @DecimalMin(inclusive = true, value="0.1", message = "O 'Valor Estimado' deve ser maior ou igual a 0.1.")
     private BigDecimal valorEstimado;
@@ -50,7 +47,6 @@ public class Produto {
                    String nome,
                    String descricao,
                    String condicao,
-                   String status,
                    BigDecimal valorEstimado,
                    LocalDate dataCadastro,
                    Categoria categoria,
@@ -59,7 +55,6 @@ public class Produto {
         this.nome = nome;
         this.descricao = descricao;
         this.condicao = condicao;
-        this.status = status;
         this.valorEstimado = valorEstimado;
         this.dataCadastro = dataCadastro;
         this.categoria = categoria;

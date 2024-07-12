@@ -1,7 +1,9 @@
+import { useState } from "react";
 import dayjs from "dayjs";
 import useRemoverCategoria from "../hooks/categoria/useRemoverCategoria";
 import useCategoriaStore from "../store/categoriaStore";
 import useCategoriasComPaginacao from "../hooks/categoria/useCategoriasComPaginacao";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const TabelaDeCategorias = () => {
   const pagina = useCategoriaStore((s) => s.pagina);
@@ -11,9 +13,22 @@ const TabelaDeCategorias = () => {
 
   const { mutate: removerCategoria } = useRemoverCategoria();
 
-  const tratarRemocao = (id: number) => {
-    removerCategoria(id);
-    setPagina(0);
+  const [removendo, setRemovendo] = useState(false);
+  const [removendoId, setRemovendoId] = useState<number | null>(null);
+
+  const tratarRemocao = async (id: number) => {
+    try {
+      setRemovendo(true);
+      setRemovendoId(id);
+
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      await removerCategoria(id);
+      setPagina(0);
+    } finally {
+      setRemovendo(false);
+      setRemovendoId(null);
+    }
   };
 
   const {
@@ -40,7 +55,7 @@ const TabelaDeCategorias = () => {
         {categorias.map((produto) => (
           <tr key={produto.id}>
             <td width="20%" className="align-middle">
-                {produto.nome}
+              {produto.nome}
             </td>
             <td width="12%" className="align-middle text-center">
               {dayjs(produto.dataCadastro).format("DD/MM/YYYY")}
@@ -49,8 +64,13 @@ const TabelaDeCategorias = () => {
               <button
                 onClick={() => tratarRemocao(produto.id!)}
                 className="btn btn-danger btn-sm"
+                disabled={removendo && removendoId === produto.id}
               >
-                Remover
+                {removendo && removendoId === produto.id ? (
+                  <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                ) : (
+                  "Remover"
+                )}
               </button>
             </td>
           </tr>
@@ -59,4 +79,5 @@ const TabelaDeCategorias = () => {
     </table>
   );
 };
+
 export default TabelaDeCategorias;

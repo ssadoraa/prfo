@@ -140,20 +140,14 @@ function VerProdutoPage() {
             <div className="col-sm-8 maq">R$: {data.valorEstimado}</div>
           </div>
 
-          <div className="row mb-3">
-            <label htmlFor="status" className="col-sm-4 col-form-label">
-              Status:
+          <div className="mb-5">
+            <label htmlFor="descricao" className="col-form-label">
+              Descrição:
             </label>
-            <div className="col-sm-8 maq">{data.status}</div>
+            <div className="maq">{data.descricao}</div>
           </div>
         </div>
 
-        <div className="mb-5">
-          <label htmlFor="descricao" className="col-form-label">
-            Descrição:
-          </label>
-          <div className="maq">{data.descricao}</div>
-        </div>
       </div>
     </div>
   );

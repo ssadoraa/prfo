@@ -8,7 +8,6 @@ interface Produto {
   descricao: string;
   condicao: string;
   dataCadastro: Date;
-  status: string;
   valorEstimado: number;
   usuarioId: number;
 }

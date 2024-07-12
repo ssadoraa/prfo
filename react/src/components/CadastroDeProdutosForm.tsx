@@ -37,7 +37,6 @@ const schema = z.object({
   valorEstimado: z
     .number({ invalid_type_error: "O preço deve ser informado." })
     .min(0.1, { message: "O preço deve ser maior ou igual a R$ 0.10" }),
-  status: z.string().min(1, { message: "O status deve ser informado." }),
   imagem: z
     .string()
     .min(1, { message: "A imagem deve ser informada." })
@@ -85,7 +84,6 @@ const CadastroDeProdutosForm = () => {
         dayjs(produtoSelecionado.dataCadastro).format("DD/MM/YYYY")
       );
       setValue("valorEstimado", produtoSelecionado.valorEstimado);
-      setValue("status", produtoSelecionado.status);
       setValue("imagem", produtoSelecionado.imagem);
       setValue("condicao", produtoSelecionado.condicao);
     } else {
@@ -104,7 +102,6 @@ const CadastroDeProdutosForm = () => {
     categoria,
     data_cadastro,
     valorEstimado,
-    status,
     imagem,
     condicao,
   }: FormProduto) => {
@@ -121,7 +118,6 @@ const CadastroDeProdutosForm = () => {
           "-" +
           data_cadastro.substring(0, 2)
       ),
-      status,
       valorEstimado,
       usuarioId,
     };
@@ -223,21 +219,6 @@ const CadastroDeProdutosForm = () => {
           }
         />
         <div className="invalid-feedback">{errors.valorEstimado?.message}</div>
-      </div>
-
-      <div className="mb-3">
-        <label className="fw-bold">Status</label>
-        <input
-          {...register("status")}
-          type="text"
-          placeholder="Digite o status do produto"
-          className={
-            errors.status
-              ? "form-control form-control-sm is-invalid"
-              : "form-control form-control-sm"
-          }
-        />
-        <div className="invalid-feedback">{errors.status?.message}</div>
       </div>
 
       <div className="mb-3">

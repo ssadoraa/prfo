@@ -4,13 +4,13 @@ import { useContext, useState } from "react";
 import { CarrinhoContext } from "../../../context/carrinhoContext";
 import Produto from "../../../interfaces/produto";
 import { Link } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const CarrinhoPage = () => {
   const carrinhoContext = useContext(CarrinhoContext);
   const [showModal, setShowModal] = useState(false);
-  const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(
-    null
-  );
+  const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(null);
+  const [removendoId, setRemovendoId] = useState<number | null>(null);
 
   if (!carrinhoContext) {
     return <div>Erro ao carregar o carrinho.</div>;
@@ -26,6 +26,13 @@ const CarrinhoPage = () => {
   const handleCloseModal = () => {
     setShowModal(false);
     setProdutoSelecionado(null);
+  };
+
+  const handleRemover = async (id: number) => {
+    setRemovendoId(id);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    removerDoCarrinho(id);
+    setRemovendoId(null);
   };
 
   return (
@@ -69,9 +76,14 @@ const CarrinhoPage = () => {
                   </button>
                   <button
                     className="btn btn-danger btn-sm ms-2"
-                    onClick={() => removerDoCarrinho(produto.id || -1)}
+                    onClick={() => handleRemover(produto.id || -1)}
+                    disabled={removendoId === produto.id}
                   >
-                    X
+                    {removendoId === produto.id ? (
+                      <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    ) : (
+                      "X"
+                    )}
                   </button>
                 </td>
               </tr>
