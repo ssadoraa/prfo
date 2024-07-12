@@ -11,7 +11,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import CadastroDeProdutosPage from "../pages/produto/CadastroDeProdutosPage";
 import CadastroDeCategoriasPage from "../pages/categoria/CadastroDeCategoriasPage";
 import ListaMeusProdutosPage from "../pages/produto/ListaMeusProdutosPage";
-import CarrinhoPage from "../pages/geral/autenticate/CarrinhoPage";
+import CarrinhoPage from "../pages/geral/carrinho/CarrinhoPage";
 import ListaCategoriasPage from "../pages/categoria/ListaCategoriasPage";
 import VerProdutoPage from "../pages/produto/VerProdutoPage";
 
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <HomePage /> },
       {
-        path: "listar-produtos",
+        path: "produtos",
         element: <ListaTodosProdutosPage />,
         children: [
           {

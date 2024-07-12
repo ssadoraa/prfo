@@ -14,6 +14,7 @@ import dayjs from "dayjs";
 import useAlterarProduto from "../hooks/produto/useAlterarProduto";
 import CustomError from "../util/CustomError";
 import { useNavigate } from "react-router-dom";
+import useCategorias from "../hooks/categoria/useCategorias";
 
 const categoriaValida = (categoria: string) => {
   return categoria !== "0";
@@ -51,6 +52,8 @@ const CadastroDeProdutosForm = () => {
 
   const produtoSelecionado = useProdutoStore((s) => s.produtoSelecionado);
   const setProdutoSelecionado = useProdutoStore((s) => s.setProdutoSelecionado);
+
+  const { data: categorias = [] } = useCategorias();
 
   type FormProduto = z.infer<typeof schema>;
 
@@ -106,11 +109,11 @@ const CadastroDeProdutosForm = () => {
     condicao,
   }: FormProduto) => {
     const produto: Produto = {
-      nome: nome,
-      descricao: descricao,
-      imagem: imagem,
+      nome,
+      descricao,
+      imagem,
       categoria: { id: parseInt(categoria) } as Categoria,
-      condicao: condicao,
+      condicao,
       dataCadastro: new Date(
         data_cadastro.substring(6, 10) +
           "-" +
@@ -118,8 +121,8 @@ const CadastroDeProdutosForm = () => {
           "-" +
           data_cadastro.substring(0, 2)
       ),
-      status: status,
-      valorEstimado: valorEstimado,
+      status,
+      valorEstimado,
     };
     if (produtoSelecionado.id) {
       produto.id = produtoSelecionado.id;
@@ -128,7 +131,7 @@ const CadastroDeProdutosForm = () => {
       cadastrarProduto(produto, {
         onError: (error) => {
           if (error instanceof CustomError && error.errorCode === 401) {
-            navigate("/login", { state: { from: "/listar-produtos" } });
+            navigate("/login", { state: { from: "/produtos" } });
           }
         },
       });
@@ -148,6 +151,7 @@ const CadastroDeProdutosForm = () => {
           {...register("nome")}
           type="text"
           id="nome"
+          placeholder="Digite o nome do produto"
           className={
             errors.nome
               ? "form-control form-control-sm is-invalid"
@@ -164,6 +168,7 @@ const CadastroDeProdutosForm = () => {
         <textarea
           {...register("descricao")}
           id="descricao"
+          placeholder="Digite uma descrição do produto"
           className={
             errors.descricao
               ? "form-control form-control-sm is-invalid"
@@ -187,9 +192,11 @@ const CadastroDeProdutosForm = () => {
           }
         >
           <option value="0">Selecione uma categoria</option>
-          <option value="1">Fruta</option>
-          <option value="2">Legume</option>
-          <option value="3">Verdura</option>
+          {categorias.map((categoria) => (
+            <option key={categoria.id} value={categoria.id}>
+              {categoria.nome}
+            </option>
+          ))}
         </select>
         <div className="invalid-feedback">{errors.categoria?.message}</div>
       </div>
@@ -202,6 +209,7 @@ const CadastroDeProdutosForm = () => {
           {...register("valorEstimado", { valueAsNumber: true })}
           type="number"
           id="valorEstimado"
+          placeholder="Digite o valor estimado"
           className={
             errors.valorEstimado
               ? "form-control form-control-sm is-invalid"
@@ -216,6 +224,7 @@ const CadastroDeProdutosForm = () => {
         <input
           {...register("status")}
           type="text"
+          placeholder="Digite o status do produto"
           className={
             errors.status
               ? "form-control form-control-sm is-invalid"
@@ -276,6 +285,7 @@ const CadastroDeProdutosForm = () => {
           {...register("imagem")}
           type="text"
           id="imagem"
+          placeholder="Digite o nome da imagem"
           className={
             errors.imagem
               ? "form-control form-control-sm is-invalid"
@@ -293,6 +303,7 @@ const CadastroDeProdutosForm = () => {
           {...register("data_cadastro")}
           type="text"
           id="data_cadastro"
+          placeholder="DD/MM/YYYY"
           className={
             errors.data_cadastro
               ? "form-control form-control-sm is-invalid"
