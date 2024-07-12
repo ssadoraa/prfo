@@ -3,10 +3,12 @@ package com.isadoraverbicario.apirestful.controller;
 import com.isadoraverbicario.apirestful.model.Produto;
 import com.isadoraverbicario.apirestful.model.ResultadoPaginado;
 import com.isadoraverbicario.apirestful.service.ProdutoService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -62,14 +64,19 @@ public class ProdutoController {
             @RequestParam(value = "pagina", defaultValue = "0") int pagina,
             @RequestParam(value = "tamanho", defaultValue = "3") int tamanho,
             @RequestParam(value = "nome", defaultValue = "") String nome,
-            @RequestParam(value = "usuarioId") Long usuarioId) {
-        Pageable pageable = PageRequest.of(pagina, tamanho);
+            @RequestParam(value = "usuarioId") Long usuarioId,
+            @RequestParam(value = "coluna", defaultValue = "id") String coluna,
+            @RequestParam(value = "direcao", defaultValue = "asc") String direcao) {
+
+        Sort.Direction direcaoSort = Sort.Direction.fromString(direcao);
+        Pageable pageable = PageRequest.of(pagina, tamanho, Sort.by(direcaoSort, coluna));
         Page<Produto> page = produtoService.recuperarProdutosComPaginacao(nome, usuarioId, pageable);
         ResultadoPaginado<Produto> resultadoPaginado = new ResultadoPaginado<>(
                 page.getTotalElements(),
                 page.getTotalPages(),
                 page.getNumber(),
                 page.getContent());
+
         return resultadoPaginado;
     }
 

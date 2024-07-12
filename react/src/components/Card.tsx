@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
   id?: number;
@@ -9,14 +10,16 @@ interface Props {
   footer: ReactNode;
 }
 
-const Card = ({ imagem, titulo, descricao, valorEstimado, footer }: Props) => {
+const Card = ({ id, imagem, titulo, descricao, valorEstimado, footer }: Props) => {
   return (
     <div className="card h-100 border-0">
-      <img src={imagem} className="card-img-top" alt={titulo} />
+      <Link to={`/${id}`} className="link-sem-underline dropdown-item">
+        <img src={imagem} className="card-img-top" alt={titulo} />
+      </Link>
       <div className="card-body">
         <h5 className="card-title">{titulo}</h5>
         <p className="card-text">{descricao}</p>
-        <p className="card-text fw-bold text-center" style={{ color: "rgb(220, 53, 69)" }}>
+        <p className="card-text fw-bold" style={{ color: "rgb(220, 53, 69)" }}>
           R$ {valorEstimado}
         </p>
       </div>
