@@ -16,7 +16,7 @@ const Card = ({ imagem, titulo, descricao, valorEstimado, footer }: Props) => {
       <div className="card-body">
         <h5 className="card-title">{titulo}</h5>
         <p className="card-text">{descricao}</p>
-        <p className="card-text fw-bold" style={{ color: "rgb(220, 53, 69)" }}>
+        <p className="card-text fw-bold text-center" style={{ color: "rgb(220, 53, 69)" }}>
           R$ {valorEstimado}
         </p>
       </div>

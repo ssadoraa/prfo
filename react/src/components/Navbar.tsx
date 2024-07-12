@@ -35,7 +35,7 @@ function NavBar() {
               >
                 Produtos
               </a>
-              <ul className="dropdown-menu">
+              <ul className="dropdown-menu custom-dropdown-menu">
                 <li>
                   <Link className="dropdown-item" to="/produtos">
                     Listar todos
@@ -63,7 +63,7 @@ function NavBar() {
               >
                 Categorias
               </a>
-              <ul className="dropdown-menu">
+              <ul className="dropdown-menu custom-dropdown-menu">
                 <li>
                   <Link className="dropdown-item" to="/categorias">
                     Listar categorias

@@ -1,7 +1,4 @@
 import { useForm } from "react-hook-form";
-import databaseAdd from "../assets/skin/database_add.png";
-import databaseEdit from "../assets/skin/database_edit.png";
-import databaseCancel from "../assets/skin/multiply.png";
 import Categoria from "../interfaces/categoria";
 import useCadastrarCategoria from "../hooks/categoria/useCadastrarCategoria";
 import { useEffect } from "react";
@@ -136,30 +133,12 @@ const CadastroDeCategoriasForm = () => {
       </div>
 
       <div className="d-flex justify-content-end mt-2">
-        <button type="submit" className="btn btn-outline-primary btn-sm me-2">
-          <img
-            src={categoriaSelecionado.id ? databaseEdit : databaseAdd}
-            alt={
-              categoriaSelecionado.id
-                ? "Alterar categoria"
-                : "Cadastrar categoria"
-            }
-            width="15"
-            height="15"
-            className="me-1"
-          />
+        <button type="submit" className="btn btn-success btn-sm me-2">
           {categoriaSelecionado.id
             ? "Alterar categoria"
             : "Cadastrar categoria"}
         </button>
         <button className="btn btn-outline-secondary btn-sm">
-          <img
-            src={databaseCancel}
-            alt="Cancelar"
-            width="15"
-            height="15"
-            className="me-1"
-          />
           Cancelar
         </button>
       </div>

@@ -1,7 +1,4 @@
 import { useForm } from "react-hook-form";
-import databaseAdd from "../assets/skin/database_add.png";
-import databaseEdit from "../assets/skin/database_edit.png";
-import databaseCancel from "../assets/skin/multiply.png";
 import Produto from "../interfaces/produto";
 import Categoria from "../interfaces/categoria";
 import useCadastrarProduto from "../hooks/produto/useCadastrarProduto";
@@ -13,7 +10,7 @@ import useProdutoStore from "../store/produtoStore";
 import dayjs from "dayjs";
 import useAlterarProduto from "../hooks/produto/useAlterarProduto";
 import CustomError from "../util/CustomError";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useCategorias from "../hooks/categoria/useCategorias";
 import useUsuarioStore from "../store/usuarioStore";
 
@@ -46,7 +43,7 @@ const schema = z.object({
     .min(1, { message: "A imagem deve ser informada." })
     .regex(regexImagem, { message: "Nome de imagem inválido." }),
   condicao: z.string().min(1, { message: "A condição deve ser informada." }),
-  usuarioId: z.number()
+  usuarioId: z.number(),
 });
 
 const CadastroDeProdutosForm = () => {
@@ -126,7 +123,7 @@ const CadastroDeProdutosForm = () => {
       ),
       status,
       valorEstimado,
-      usuarioId
+      usuarioId,
     };
     if (produtoSelecionado.id) {
       produto.id = produtoSelecionado.id;
@@ -147,7 +144,11 @@ const CadastroDeProdutosForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} autoComplete="Off">
-      <input type="hidden" {...register("usuarioId", { valueAsNumber: true })} value={usuarioId} />
+      <input
+        type="hidden"
+        {...register("usuarioId", { valueAsNumber: true })}
+        value={usuarioId}
+      />
       <div className="mb-3">
         <label htmlFor="nome" className="fw-bold">
           Nome
@@ -320,28 +321,12 @@ const CadastroDeProdutosForm = () => {
       </div>
 
       <div className="d-flex justify-content-end mt-2">
-        <button type="submit" className="btn btn-outline-primary btn-sm me-2">
-          <img
-            src={produtoSelecionado.id ? databaseEdit : databaseAdd}
-            alt={
-              produtoSelecionado.id ? "Alterar produto" : "Cadastrar produto"
-            }
-            width="15"
-            height="15"
-            className="me-1"
-          />
-          {produtoSelecionado.id ? "Alterar produto" : "Cadastrar produto"}
+        <button type="submit" className="btn btn-success me-2">
+          {produtoSelecionado.id ? "Salvar produto" : "Cadastrar produto"}
         </button>
-        <button className="btn btn-outline-secondary btn-sm">
-          <img
-            src={databaseCancel}
-            alt="Cancelar"
-            width="15"
-            height="15"
-            className="me-1"
-          />
+        <Link to={"/meus_produtos"} className="btn btn-outline-secondary">
           Cancelar
-        </button>
+        </Link>
       </div>
     </form>
   );

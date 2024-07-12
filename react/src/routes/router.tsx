@@ -14,6 +14,7 @@ import ListaMeusProdutosPage from "../pages/produto/ListaMeusProdutosPage";
 import CarrinhoPage from "../pages/geral/carrinho/CarrinhoPage";
 import ListaCategoriasPage from "../pages/categoria/ListaCategoriasPage";
 import VerProdutoPage from "../pages/produto/VerProdutoPage";
+import CadastroDeUsuariosForm from "../components/CadastroDeUsuarioForm";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,7 @@ const router = createBrowserRouter([
       { path: "suporte", element: <SuportePage /> },
       { path: ":id", element: <VerProdutoPage /> },
       { path: "login", element: <LoginPage /> },
+      { path: "cadastro", element: <CadastroDeUsuariosForm /> },
     ],
   },
   {

@@ -1,15 +1,14 @@
 import { z } from "zod";
 import useUsuarioStore from "../store/usuarioStore";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
-import loginIcon from "../assets/skin/login.png";
 import Usuario from "../interfaces/usuario";
 import TokenResponse from "../interfaces/tokenResponse";
 import useEfetuarLogin from "../hooks/useEfetuarLogin";
 import TokenClass from "../util/TokenClass";
-import "../css/geral.css"
+import "../css/geral.css";
 
 const schema = z.object({
   username: z.string().min(1, { message: "A conta deve ser informada." }),
@@ -113,10 +112,13 @@ const LoginForm = () => {
           </div>
 
           <div className="row">
-            <div className="offset-lg-9 col-lg-5">
-              <button type="submit" className="btn btn-outline-primary">
-                <img src={loginIcon} alt="Login" /> Entrar
+            <div className="offset-lg-8 col-lg-5">
+              <button type="submit" className="btn btn-primary">
+                Entrar
               </button>
+              <Link className="btn btn-success ms-1" to="/cadastro">
+                Cadastrar
+              </Link>
             </div>
           </div>
         </form>

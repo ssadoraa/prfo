@@ -14,12 +14,11 @@ const ListaMeusProdutosPage = () => {
       <div className="d-flex justify-content-between">
         <Paginacao />
         <div>
-          <Link className="btn btn-sm btn-primary mt-1" to="/cadastrar-produto">
+          <Link className="btn btn-sm btn-success mt-1" to="/cadastrar-produto">
             Cadastrar
           </Link>
         </div>
       </div>
-
     </>
   );
 };

@@ -42,4 +42,17 @@ footer {
     border-radius: 5px;
     max-width: 600px;
 }  
-  
+
+.custom-dropdown-menu {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.custom-dropdown-menu .dropdown-item {
+    color: #333;
+}
+
+.custom-dropdown-menu .dropdown-item:hover {
+    background-color: #e2e6ea;
+    color: #000;
+}  

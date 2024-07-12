@@ -8,7 +8,9 @@ import { Link } from "react-router-dom";
 const CarrinhoPage = () => {
   const carrinhoContext = useContext(CarrinhoContext);
   const [showModal, setShowModal] = useState(false);
-  const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(null);
+  const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(
+    null
+  );
 
   if (!carrinhoContext) {
     return <div>Erro ao carregar o carrinho.</div>;
@@ -79,7 +81,11 @@ const CarrinhoPage = () => {
       )}
 
       {showModal && produtoSelecionado && (
-        <div className="modal fade show overlay" style={{ display: 'block' }} role="dialog">
+        <div
+          className="modal fade show overlay"
+          style={{ display: "block" }}
+          role="dialog"
+        >
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
@@ -87,14 +93,21 @@ const CarrinhoPage = () => {
               </div>
               <div className="modal-body">
                 <p>Você está negociando o produto:</p>
-                <p><strong>Nome:</strong> {produtoSelecionado.nome}</p>
-                <p><strong>Condição:</strong> {produtoSelecionado.condicao}</p>
-                <p><strong>Valor Estimado:</strong> {produtoSelecionado.valorEstimado.toLocaleString("pt-BR", {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                  useGrouping: true,
-                })}</p>
-                
+                <p>
+                  <strong>Nome:</strong> {produtoSelecionado.nome}
+                </p>
+                <p>
+                  <strong>Condição:</strong> {produtoSelecionado.condicao}
+                </p>
+                <p>
+                  <strong>Valor Estimado:</strong>{" "}
+                  {produtoSelecionado.valorEstimado.toLocaleString("pt-BR", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                    useGrouping: true,
+                  })}
+                </p>
+
                 <textarea
                   className="form-control"
                   rows={5}
@@ -102,10 +115,18 @@ const CarrinhoPage = () => {
                 />
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={handleCloseModal}
+                >
                   Fechar
                 </button>
-                <button type="button" className="btn btn-primary" onClick={handleCloseModal}>
+                <button
+                  type="button"
+                  className="btn btn-success"
+                  onClick={handleCloseModal}
+                >
                   Enviar
                 </button>
               </div>
@@ -113,7 +134,6 @@ const CarrinhoPage = () => {
           </div>
         </div>
       )}
-
     </div>
   );
 };
