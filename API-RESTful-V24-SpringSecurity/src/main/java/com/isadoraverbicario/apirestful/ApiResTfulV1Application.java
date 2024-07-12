@@ -203,7 +203,7 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 		produtoRepository.save(livro);
 
 		celular = new Produto(
-				"celular.png",
+				"celular2.png",
 				"Celular",
 				"Smartphone Iphone, IOS, 128GB",
 				"novo",
@@ -236,21 +236,10 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 		produtoRepository.save(placaMae);
 
 		bola = new Produto(
-				"bola.png",
-				"Bola",
-				"Bola de futebol tamanho padrão",
-				"novo",
-				BigDecimal.valueOf(29.99),
-				LocalDate.of(2024, 7, 12),
-				brinquedos,
-				3L);
-		produtoRepository.save(bola);
-
-		bola = new Produto(
-				"bola.png",
-				"Bola",
-				"Bola de futebol tamanho padrão",
-				"novo",
+				"carrinho.png",
+				"Carrinho",
+				"Carrinho vermelho",
+				"usado",
 				BigDecimal.valueOf(29.99),
 				LocalDate.of(2024, 7, 12),
 				brinquedos,
