@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../../../css/geral.css';
 import '../../../css/home.css';
 
@@ -41,7 +42,7 @@ const HomePage = () => {
                     <h3 className="mb-4 text-center">Principais Categorias</h3>
                     <div className="row d-flex flex-wrap">
                         <div className="col-lg-3 col-md-6">
-                            <a href="#" className="card-link">
+                            <Link to={"/produtos/roupas"} className="card-link">
                                 <div className="card card-custom">
                                     <img src="/roupas.jpg" alt="Roupas" height="205px" />
                                     <div className="card-body">
@@ -49,10 +50,10 @@ const HomePage = () => {
                                         <p className="card-text text-justify">Troque roupas novas ou usadas com os outros usuários.</p>
                                     </div>
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                         <div className="col-lg-3 col-md-6">
-                            <a href="#" className="card-link">
+                            <Link to={"/produtos/eletronicos"} className="card-link">
                                 <div className="card card-custom">
                                     <img src="/eletronico.jpg" alt="Eletronicos" />
                                     <div className="card-body">
@@ -60,10 +61,10 @@ const HomePage = () => {
                                         <p className="card-text text-justify">Encontre uma variedade de eletrônicos para trocar.</p>
                                     </div>
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                         <div className="col-lg-3 col-md-6">
-                            <a href="#" className="card-link">
+                            <Link to={"/produtos/ferramentas"} className="card-link">
                                 <div className="card card-custom">
                                     <img src="/ferramentas.jpg" alt="Ferramentas" />
                                     <div className="card-body">
@@ -71,10 +72,10 @@ const HomePage = () => {
                                         <p className="card-text text-justify">Troque roupas novas ou usadas com os outros usuários.</p>
                                     </div>
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                         <div className="col-lg-3 col-md-6">
-                            <a href="#" className="card-link">
+                            <Link to={"/produtos/livros"} className="card-link">
                                 <div className="card card-custom">
                                     <img src="/livros.jpg" alt="Livros" />
                                     <div className="card-body">
@@ -82,7 +83,7 @@ const HomePage = () => {
                                         <p className="card-text text-justify">Terminou de ler um livro, troque por outro.</p>
                                     </div>
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

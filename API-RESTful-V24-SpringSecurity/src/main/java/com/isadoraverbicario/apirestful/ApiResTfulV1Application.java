@@ -52,11 +52,25 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 			usuarioRepository.save(usuario);
 		}
 
+		Usuario isadora = usuarioRepository.findByUsername("isadora");
+		if (isadora == null) {
+			Usuario usuario = new Usuario();
+			usuario.setUsername("isadora");
+			usuario.setPassword(passwordEncoder.encode("isa123"));
+			usuario.setRole(Role.USER);
+			usuario.setAccountNonLocked(true);
+			usuario.setCredentialsNonExpired(true);
+			usuario.setAccountNonExpired(true);
+			usuario.setEnabled(true);
+
+			usuarioRepository.save(usuario);
+		}
+		
 		Usuario user = usuarioRepository.findByUsername("user");
 		if (user == null) {
 			Usuario usuario = new Usuario();
 			usuario.setUsername("user");
-			usuario.setPassword(passwordEncoder.encode("12345"));
+			usuario.setPassword(passwordEncoder.encode("isa123"));
 			usuario.setRole(Role.USER);
 			usuario.setAccountNonLocked(true);
 			usuario.setCredentialsNonExpired(true);
@@ -66,14 +80,53 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 			usuarioRepository.save(usuario);
 		}
 
+		Categoria automotivo = new Categoria("Automotivo", "automotivo");
+		categoriaRepository.save(automotivo);
+		
+		Categoria beleza = new Categoria("Beleza", "beleza");
+		categoriaRepository.save(beleza);
+		
+		Categoria brinquedos = new Categoria("Brinquedos", "brinquedos");
+		categoriaRepository.save(brinquedos);
+		
+		Categoria decoracao = new Categoria("Decoração", "decoracao");
+		categoriaRepository.save(decoracao);
+		
+		Categoria eletronicos = new Categoria("Eletrônicos", "eletronicos");
+		categoriaRepository.save(eletronicos);
+		
+		Categoria escritorio = new Categoria("Escritório", "escritorio");
+		categoriaRepository.save(escritorio);
+		
+		Categoria esportes = new Categoria("Esportes", "esportes");
+		categoriaRepository.save(esportes);
+		
+		Categoria ferramentas = new Categoria("Ferramentas", "ferramentas");
+		categoriaRepository.save(ferramentas);
+		
 		Categoria fruta = new Categoria("Frutas", "frutas");
 		categoriaRepository.save(fruta);
-
-		Categoria legume = new Categoria("Legumes", "legumes");
-		categoriaRepository.save(legume);
-
-		Categoria verdura = new Categoria("Verduras", "verduras");
-		categoriaRepository.save(verdura);
+		
+		Categoria informatica = new Categoria("Informática", "informatica");
+		categoriaRepository.save(informatica);
+		
+		Categoria jardinagem = new Categoria("Jardinagem", "jardinagem");
+		categoriaRepository.save(jardinagem);
+		
+		Categoria livros = new Categoria("Livros", "livros");
+		categoriaRepository.save(livros);
+		
+		Categoria moveis = new Categoria("Móveis", "moveis");
+		categoriaRepository.save(moveis);
+		
+		Categoria musica = new Categoria("Música", "musica");
+		categoriaRepository.save(musica);
+		
+		Categoria pet = new Categoria("Pet", "pet");
+		categoriaRepository.save(pet);
+		
+		Categoria roupas = new Categoria("Roupas", "roupas");
+		categoriaRepository.save(roupas);
 
 		Produto produto = new Produto(
 				"abacate.png",
@@ -87,226 +140,6 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 				1L);
 		produtoRepository.save(produto);
 		
-		produto = new Produto(
-				"abobrinha.jpg",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				2L);
-		produtoRepository.save(produto);
-		
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
-		produto = new Produto(
-				"abacate.png",
-				"Abacate",
-				"1 unidade aprox. 750g",
-				"Usado",
-				"Ativo",
-				BigDecimal.valueOf(2.45),
-				LocalDate.of(2023, 4, 26),
-				fruta,
-				1L);
-		produtoRepository.save(produto);
+	
 	}
 }
