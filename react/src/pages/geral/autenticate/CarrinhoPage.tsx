@@ -9,13 +9,14 @@ const CarrinhoPage = () => {
     return <div>Erro ao carregar o carrinho.</div>;
   }
 
-  const { carrinho } = carrinhoContext;
+  const { carrinho, removerDoCarrinho } = carrinhoContext;
 
   return (
     <div className="container mt-4">
-      <h2>Carrinho de Compras</h2>
+      <h4>Produtos Selecionados Para Negociar</h4>
+      <hr className="mt-1 mb-4" />
       {carrinho.length === 0 ? (
-        <p>O carrinho está vazio.</p>
+        <p>A lista está vazia</p>
       ) : (
         <table className="table table-responsive table-sm table-hover table-bordered">
           <thead>
@@ -23,6 +24,7 @@ const CarrinhoPage = () => {
               <th className="align-middle text-center">Nome</th>
               <th className="align-middle text-center">Condição</th>
               <th className="align-middle text-center">Valor Estimado</th>
+              <th className="align-middle text-center">Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -36,6 +38,20 @@ const CarrinhoPage = () => {
                     maximumFractionDigits: 2,
                     useGrouping: true,
                   })}
+                </td>
+                <td className="align-middle text-center">
+                  <button 
+                    className="btn btn-danger btn-sm"
+                    onClick={() => removerDoCarrinho(produto.id || -1)}
+                  >
+                    Remover
+                  </button>
+                  <button 
+                    className="btn btn-primary btn-sm"
+                    // onClick={}
+                  >
+                    Negociar
+                  </button>
                 </td>
               </tr>
             ))}
