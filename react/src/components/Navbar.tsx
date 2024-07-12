@@ -42,7 +42,7 @@ function NavBar() {
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="/listar-meus-produtos">
+                  <Link className="dropdown-item" to="/meus_produtos">
                     Meus produtos
                   </Link>
                 </li>

@@ -15,13 +15,10 @@ const useAPIProduto = () => {
       .catch((error) => {
         if (error.response) {
           throw new CustomError(error.response.data.message, error.response.data.errorCode);
-          // significa servidor respondeu
         } else if (error.request) {
           throw error;
-          // significa que o servidor não respondeu
         } else {
           throw error;
-          // erro desconhecido
         }
       });
 
@@ -32,13 +29,10 @@ const useAPIProduto = () => {
       .catch((error) => {
         if (error.response) {
           throw new CustomError(error.response.data.message, error.response.data.errorCode);
-          // significa servidor respondeu
         } else if (error.request) {
           throw error;
-          // significa que o servidor não respondeu
         } else {
           throw error;
-          // erro desconhecido
         }
       });
 
