@@ -66,8 +66,8 @@ public class ProdutoService {
         return produtoRepository.recuperarProdutosComCategoria();
     }
 
-    public Page<Produto> recuperarProdutosComPaginacao(String nome, Pageable pageable) {
-        return produtoRepository.recuperarProdutosComPaginacao(nome, pageable);
+    public Page<Produto> recuperarProdutosComPaginacao(String nome, Long usuadioId, Pageable pageable) {
+        return produtoRepository.recuperarProdutosComPaginacao(nome, usuadioId, pageable);
     }
 
     public List<Produto> recuperarProdutosPorSlugDaCategoria(String slug) {

@@ -7,6 +7,7 @@ interface QueryString {
   pagina: number;
   tamanho: number;
   nome: string;
+  usuarioId: number;
 }
 
 const useProdutosComPaginacao = (query: QueryString) => {
@@ -23,4 +24,5 @@ const useProdutosComPaginacao = (query: QueryString) => {
     staleTime: 10_000,
   });
 };
+
 export default useProdutosComPaginacao;

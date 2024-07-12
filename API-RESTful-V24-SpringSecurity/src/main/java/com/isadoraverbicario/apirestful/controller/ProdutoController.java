@@ -61,9 +61,10 @@ public class ProdutoController {
     public ResultadoPaginado<Produto> recuperarProdutosComPaginacao(
             @RequestParam(value = "pagina", defaultValue = "0") int pagina,
             @RequestParam(value = "tamanho", defaultValue = "3") int tamanho,
-            @RequestParam(value = "nome", defaultValue = "") String nome) {
+            @RequestParam(value = "nome", defaultValue = "") String nome,
+            @RequestParam(value = "usuarioId") Long usuarioId) { // Adicione o usuarioId aqui
         Pageable pageable = PageRequest.of(pagina, tamanho);
-        Page<Produto> page = produtoService.recuperarProdutosComPaginacao(nome, pageable);
+        Page<Produto> page = produtoService.recuperarProdutosComPaginacao(nome, usuarioId, pageable); // Passar usuarioId para o serviço
         ResultadoPaginado<Produto> resultadoPaginado = new ResultadoPaginado<>(
                 page.getTotalElements(),
                 page.getTotalPages(),
@@ -71,6 +72,7 @@ public class ProdutoController {
                 page.getContent());
         return resultadoPaginado;
     }
+
 
     @GetMapping("slugCategoria/{slug}")
     public List<Produto> recuperarProdutosPorSlugDaCategoria(@PathVariable("slug") String slug) {

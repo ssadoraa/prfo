@@ -1,11 +1,13 @@
 import useProdutosComPaginacao from "../hooks/produto/useProdutosComPaginacao";
 import useProdutoStore from "../store/produtoStore";
+import useUsuarioStore from "../store/usuarioStore";
 
 const Paginacao = () => {
   const pagina = useProdutoStore((s) => s.pagina);
   const tamanho = useProdutoStore((s) => s.tamanho);
   const nome = useProdutoStore((s) => s.nome);
   const setPagina = useProdutoStore((s) => s.setPagina);
+  const usuarioId = useUsuarioStore((s) => s.usuarioId);
 
   const tratarPaginacao = (pagina: number) => {
     setPagina(pagina);
@@ -15,7 +17,7 @@ const Paginacao = () => {
     data: resultadoPaginado,
     isPending: carregandoProdutos,
     error: errorProdutos,
-  } = useProdutosComPaginacao({ pagina, tamanho, nome });
+  } = useProdutosComPaginacao({ pagina, tamanho, nome, usuarioId });
 
   if (carregandoProdutos) return <h6>Carregando...</h6>;
   if (errorProdutos) throw errorProdutos;
@@ -58,4 +60,5 @@ const Paginacao = () => {
     </nav>
   );
 };
+
 export default Paginacao;

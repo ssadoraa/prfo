@@ -88,6 +88,18 @@ public class ApiResTfulV1Application implements CommandLineRunner {
 		produtoRepository.save(produto);
 		
 		produto = new Produto(
+				"abobrinha.jpg",
+				"Abacate",
+				"1 unidade aprox. 750g",
+				"Usado",
+				"Ativo",
+				BigDecimal.valueOf(2.45),
+				LocalDate.of(2023, 4, 26),
+				fruta,
+				2L);
+		produtoRepository.save(produto);
+		
+		produto = new Produto(
 				"abacate.png",
 				"Abacate",
 				"1 unidade aprox. 750g",
