@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CarrinhoContext } from '../context/carrinhoContext';
 import '../css/geral.css';
 
 function NavBar() {
+  const carrinhoContext = useContext(CarrinhoContext);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -32,7 +35,14 @@ function NavBar() {
               </ul>
             </li>
             <li className="nav-item">
-              <Link className="nav-link me-5" to="/produtos-selecionados">Produtos Selecionados</Link>
+              <Link className="nav-link me-5" to="/carrinho">
+                Produtos Selecionados
+                {carrinhoContext && carrinhoContext.carrinho.length > 0 && (
+                  <span className="badge bg-primary ms-2">
+                    {carrinhoContext.carrinho.length}
+                  </span>
+                )}
+              </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/login">Login</Link>

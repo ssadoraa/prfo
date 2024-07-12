@@ -1,8 +1,10 @@
 import "../../css/geral.css";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Card from "../../components/Card";
 import useProdutosPaginadosPorSlugDaCategoria from "../../hooks/produto/useProdutosPaginadosPorSlugDaCategoria";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useContext } from "react";
+import { CarrinhoContext } from "../../context/carrinhoContext";
 
 const CardsDeProdutosPage = () => {
   const { slug } = useParams();
@@ -14,6 +16,8 @@ const CardsDeProdutosPage = () => {
     hasNextPage,
     fetchNextPage,
   } = useProdutosPaginadosPorSlugDaCategoria({ tamanho, slug });
+
+  const carrinhoContext = useContext(CarrinhoContext);
 
   if (carregandoProdutos) return <h6>Carregando...</h6>;
   if (errorprodutos) throw errorprodutos;
@@ -38,25 +42,24 @@ const CardsDeProdutosPage = () => {
               key={produto.id}
               className="col-lg-2 col-md-3 col-sm-4 col-6 mb-3"
             >
-              <Link to={`/${produto.id}`} className="link-sem-underline">
-                <Card
-                  imagem={produto.imagem}
-                  titulo={produto.nome}
-                  descricao={produto.condicao}
-                  valorEstimado={produto.valorEstimado.toLocaleString("pt-BR", {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                    useGrouping: true,
-                  })}
-                  footer={
-                    <input
-                      type="button"
-                      className="btn btn-primary btn-sm w-100"
-                      value="Adicionar"
-                    />
-                  }
-                />
-              </Link>
+              <Card
+                imagem={produto.imagem}
+                titulo={produto.nome}
+                descricao={produto.condicao}
+                valorEstimado={produto.valorEstimado.toLocaleString("pt-BR", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                  useGrouping: true,
+                })}
+                footer={
+                  <input
+                    type="button"
+                    className="btn btn-primary btn-sm w-100"
+                    value="Adicionar"
+                    onClick={() => carrinhoContext?.adicionarAoCarrinho(produto)} // Adiciona ao carrinho
+                  />
+                }
+              />
             </div>
           ))
         )}
