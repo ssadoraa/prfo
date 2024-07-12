@@ -13,7 +13,6 @@ const TabelaDeProdutos = () => {
   const { mutate: removerProduto } = useRemoverProduto();
 
   const tratarRemocao = (id: number) => {
-    // Confirmar a remoção
     if (window.confirm("Tem certeza que deseja remover este produto?")) {
       removerProduto(id);
       setPagina(0);

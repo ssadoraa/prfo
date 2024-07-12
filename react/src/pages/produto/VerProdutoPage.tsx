@@ -155,12 +155,6 @@ function VerProdutoPage() {
           <div className="maq">{data.descricao}</div>
         </div>
       </div>
-
-      <div className="mt-5">
-        <button type="button" className="btn btn-primary me-3">
-          Negociar
-        </button>
-      </div>
     </div>
   );
 }

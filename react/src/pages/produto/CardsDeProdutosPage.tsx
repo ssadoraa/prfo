@@ -56,7 +56,7 @@ const CardsDeProdutosPage = () => {
                     type="button"
                     className="btn btn-primary btn-sm w-100"
                     value="Adicionar"
-                    onClick={() => carrinhoContext?.adicionarAoCarrinho(produto)} // Adiciona ao carrinho
+                    onClick={() => carrinhoContext?.adicionarAoCarrinho(produto)}
                   />
                 }
               />
