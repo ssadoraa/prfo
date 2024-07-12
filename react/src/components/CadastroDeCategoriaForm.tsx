@@ -88,7 +88,7 @@ const CadastroDeCategoriasForm = () => {
       cadastrarCategoria(categoria, {
         onError: (error) => {
           if (error instanceof CustomError && error.errorCode === 401) {
-            navigate("/login", { state: { from: "/listar-categorias" } });
+            navigate("/login", { state: { from: "/categoriass" } });
           }
         },
       });

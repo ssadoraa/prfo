@@ -65,7 +65,7 @@ function NavBar() {
               </a>
               <ul className="dropdown-menu">
                 <li>
-                  <Link className="dropdown-item" to="/listar-categoria">
+                  <Link className="dropdown-item" to="/categorias">
                     Listar categorias
                   </Link>
                 </li>

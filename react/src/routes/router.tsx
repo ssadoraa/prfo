@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       { path: "cadastrar-produto", element: <CadastroDeProdutosPage /> },
       { path: "cadastrar-categoria", element: <CadastroDeCategoriasPage /> },
       { path: "listar-meus-produtos", element: <ListaMeusProdutosPage /> },
-      { path: "listar-categoria", element: <ListaCategoriasPage /> },
+      { path: "categorias", element: <ListaCategoriasPage /> },
       { path: "carrinho", element: <CarrinhoPage /> },
     ],
   },
